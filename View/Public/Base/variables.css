@@ -1,0 +1,38 @@
+:root {
+    /* Couleurs */
+    --color-primary: #0a68ff;
+    --color-secondary: white;
+    --color-text:black;
+
+    /* Couleurs --- Boutons */
+    --color-button-booking:black;
+    --color-button-booking-hover:#CFA975;
+
+    --color-button-connect:#D2D4DD;
+    --color-button-connect-hover:#8E91B2;
+
+    --color-button-create-account:#2094D7;
+    --color-button-create-account-hover:#202FD7;
+
+    --color-button-modify:#2094D7;
+    --color-button-modify-hover:#20D788;
+
+    --color-button-saveCancel:#FBFBFF;
+    --color-button-save-hover:#8E91B2;
+    --color-button-cancel-hover:#D72020;
+
+
+    --color-button-clicked:#000000;
+
+    --color-card-event:#D9D9D9;
+
+    /* box shadow */
+    box-shadow: 0 10px 15px -5px rgba(0, 0, 0, 0.3); /* Ombre portée */
+  
+    /* Typographie */
+    --font-main: 'inter';
+    --font-size-base: 16px;
+  
+    
+  
+  }

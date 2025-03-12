@@ -1,0 +1,39 @@
+
+
+.news {
+    
+    margin-bottom: 3%;
+    width: 100%;
+    padding: 2%;
+    background-color: var(--color-card-event);
+    font-size: 16px;
+}
+
+ul {
+    width: 100%;
+    list-style: none; /* Supprime les puces */
+    padding: 0; /* Supprime le retrait par défaut */
+    margin: 0; /* Supprime l'espace autour de la liste */
+}
+
+.roleDiv {
+    display: flex;
+    width: 100%;
+}
+
+
+.saveButton{
+    
+    width: 100%;
+}
+
+
+.saveDelete {
+    display: flex;
+    justify-content: space-evenly;
+    padding: 5%;
+}
+
+#modifyButton {
+   justify-content: flex-end;
+}

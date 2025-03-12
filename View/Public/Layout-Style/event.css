@@ -1,0 +1,122 @@
+.card__event {
+    width: 100%;
+    background-color: var(--color-card-event);
+    margin-bottom: 5%;
+    
+}
+
+.mainTitleEvent {
+    margin: 2%;
+    font-size: 24px;
+}
+
+.topPart {
+    display: flex;
+    flex-direction: column;
+    
+    
+    width: 100%;
+    
+    
+}
+
+.descriptionEvent {
+    font-size: small;
+}
+
+.bottomPart {
+    display: flex;
+    
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    padding-top: 5%;
+    
+    padding-right: 2%;
+    padding-bottom: 5%;
+}
+
+.infosEvent {
+    width: 50%;
+    
+    text-align: center;
+}
+
+.confirmation {
+   display: none; 
+    flex-direction: column;
+    align-items: center;
+    padding: 5%;
+    width: 82%;
+    height: 17%;
+    left:9%;
+    color: white;
+    border-radius: 5px;
+
+    background-color: black;
+}
+
+.answerContainer {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+
+}
+
+.questionBookingTitle {
+    width: 100%;
+    text-align: center;
+    font-size: 16px;
+    padding-bottom: 5%;
+}
+
+
+.buttonYes, .buttonNo {
+    color: white;
+    background-color: black;
+    border: none;
+    font-size: 16px;
+    font-weight: bolder;
+}
+
+.buttonBooking,.buttonBooking2 {
+    padding:7px;
+    max-width: 48%;
+    font-size: 16px;
+    color: white;
+    border-radius: 10px;
+    background-color: var(--color-button-booking);
+}
+
+
+
+/* Tablette (768px et plus) */
+@media (min-width: 768px) {
+
+    .card__event {
+   
+       width: 70%;
+    
+      
+    }
+  
+   
+  
+  
+  
+  }
+
+  @media (min-width: 1050px) {
+
+    .card__event {
+   
+       width: 50%;
+    
+      
+    }
+  
+   
+  
+  
+  
+  }

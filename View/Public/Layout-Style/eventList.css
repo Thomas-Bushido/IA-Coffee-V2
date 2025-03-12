@@ -1,0 +1,89 @@
+
+.addButtonDiv {
+    margin-bottom: 3%;
+}
+
+
+.formModifyEvent {
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+}
+#addButton {
+    display: flex;
+justify-content: center;
+  
+    padding: 3%;
+    border: none;
+    background-color: var(--color-secondary);
+}
+
+#addLogo {
+    height: 90%;
+    width: 75%;
+}
+
+.addEventDiv {
+    display: none;
+
+    top: 25%;
+    width: 95%;
+    background-color: white;
+}
+
+ .addEventForm {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+} 
+
+#addTitre, #addDate, #addHeure, #addLieu, #addDecription, #addPlace {
+    text-align: center;
+    width: 80%;
+    
+}
+
+#updateButtonList{
+    width: 90%;
+  background-color:var(--color-button-create-account);
+  color:white;
+  box-shadow: 0 10px 15px -5px rgba(0, 0, 0, 0.3); /* Ombre portée */
+  border: none;
+  border-radius: 5px;
+  margin-bottom: 5%;
+  padding: 2%;
+}
+
+#deleteButtonList{
+    width: 90%;
+  background-color:var(--color-button-saveCancel);
+  color:black;
+  box-shadow: 0 10px 15px -5px rgba(0, 0, 0, 0.3); /* Ombre portée */
+  border: none;
+  border-radius: 5px;
+  margin-bottom: 5%;
+  padding: 2%;
+}
+
+textarea {
+    width: 90%; /* Prend toute la largeur du conteneur */
+    min-height: 60px; /* Hauteur minimale (ajuster selon besoin) */
+    resize: vertical; /* Permet à l'utilisateur d'agrandir la zone si besoin */
+}
+
+.buttonCancelBooking {
+    
+    width: 90%;
+    
+    font-size: 16px;
+    padding: 2%;
+    color: black;
+    border-radius: 5px;
+    background-color: var(--color-button-saveCancel);
+    border: none;
+    margin-bottom: 2%;
+    box-shadow: 0 10px 15px -5px rgba(0, 0, 0, 0.3);
+}

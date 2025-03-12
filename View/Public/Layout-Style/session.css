@@ -1,0 +1,133 @@
+.card__booking {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    background-color: var(--color-card-event);
+    
+    margin-top: 5%;
+}
+
+.deconnection {
+    width: 100%;
+}
+.mainTitleEvent {
+    margin: 2%;
+    font-size: 24px;
+}
+
+.topPartB {
+    display: flex;
+    flex-direction: column;
+    padding: 2%;
+    
+    width: 100%;
+    
+    
+}
+
+.descriptionEvent {
+    font-size: small;
+}
+
+.bottomPartB {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+   
+}
+
+.infosEventB {
+    width: 100%;
+    font-size: 16px;
+    text-align: center;
+    padding-bottom: 2%;
+}
+
+.cancellation, .updateDiv, .deleteAccount {
+   display: none; 
+    flex-direction: column;
+    align-items: center;
+    padding: 5%;
+    width: 82%;
+    height: 17%;
+    top: 45%;
+    left:9%;
+    color: white;
+    border-radius: 5px;
+
+    background-color: black;
+}
+
+.answerContainer {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+
+}
+
+.questionBookingTitle {
+    width: 100%;
+    text-align: center;
+    font-size: 16px;
+    padding-bottom: 5%;
+}
+
+
+.buttonYes, .buttonNo {
+    color: white;
+    background-color: black;
+    border: none;
+    font-size: 16px;
+    font-weight: bolder;
+}
+
+.buttonCancelBooking {
+    
+    width: 90%;
+    
+    font-size: 16px;
+    padding: 2%;
+    color: black;
+    border-radius: 5px;
+    background-color: var(--color-button-saveCancel);
+    border: none;
+    margin-bottom: 2%;
+    box-shadow: 0 10px 15px -5px rgba(0, 0, 0, 0.3);
+}
+
+.buttonCancelBooking:hover {
+    color: white;
+    background-color: var(--color-button-clicked);
+}
+
+/* Tablette (768px et plus) */
+@media (min-width: 768px) {
+
+    #titleMyBookings{
+      padding: 1%;
+    }
+    .infosEventB, .card__booking, .deconnection { 
+        width: 60%;
+    }
+
+    .card__booking{
+        margin-top: 2%;    }
+   
+  
+  
+  
+  }
+
+  @media (min-width: 1024px) {
+
+ 
+    .infosEventB, .card__booking, .deconnection { 
+        width: 30%;
+    }
+   
+  
+  
+  
+  }

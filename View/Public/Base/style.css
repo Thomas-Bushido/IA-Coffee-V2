@@ -1,0 +1,257 @@
+/* 1. Réinitialisation de base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  font-family: Arial, sans-serif;
+  background-color: var(--color-secondary);
+}
+
+ header {
+  width: 100%;
+  padding: 1rem;
+  height: 20%;
+  background-color: var(--color-primary);
+  padding-bottom: 6px;
+  position: fixed;
+
+  box-shadow: 0 10px 15px -5px rgba(0, 0, 0, 0.3); /* Ombre portée */
+ }
+
+
+header nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* 3. Styles pour le main */
+main {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  padding: 1rem;
+  background-color: var(--color-secondary);
+  min-height: calc(100vh - 120px); /* Assure que le main occupe tout l'espace disponible */
+}
+
+/* 4. Styles pour le footer */
+footer {
+  background-color:var(--color-primary);
+  color: white;
+  text-align: center;
+  padding: 1rem;
+  position: relative;
+  height: 30%;
+}
+
+button a {
+  display: block;
+  width: 100%;
+  text-decoration: none; /* Supprime le soulignement */
+  color: inherit; /* Garde la couleur du texte du bouton */
+}
+
+
+
+button a:visited {
+  color: inherit; /* Empêche la couleur violette après le clic */
+}
+
+
+.container1__homepage {
+  padding-top: 150px;
+display: flex;
+justify-content: center;
+align-items: center;
+flex-direction: column;
+width: 100%;
+height: auto;
+}
+
+.logoHomepage {
+  width: 50%;
+  height: auto;
+}
+
+h1 {
+  text-align: center;
+  min-width: 100%;
+  font-size: 16px;
+  padding-bottom: 10px;
+}
+
+
+.container2__homepage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+  height: 10%;
+  color:black;
+  font-size: 10px;
+}
+
+.Picture__1 {
+  max-width: 100%; /* Ne dépasse jamais le conteneur parent */
+    height: auto; /* Maintient les proportions */
+    display: block; /* Supprime les espaces indésirables pour les images en ligne */
+    border-radius: 10px;
+    box-shadow: 0 10px 15px -5px rgba(0, 0, 0, 0.3); /* Ombre portée */
+    margin-bottom: 0.5%;
+  }
+
+  .moreInfos {
+    color: var(--color-button-create-account);
+    padding-top: 5px;
+   margin-bottom: 3%;
+  }
+ 
+.container3__homepage {
+ 
+ 
+  height: 10%;
+  /* background-color: var(--color-secondary); */
+  font-weight: bolder;
+}  
+
+.chronoTitle {
+  padding: 10px;
+}
+
+.chrono {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 100%;
+  height: 80%;
+}
+
+.days, .hours, .minuts, .seconds {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  align-items: center;
+  text-align: center;
+  max-width: 1rem;
+  max-height: 2rem;
+  padding: 35px;
+  margin-bottom: 4%;
+  border-radius: 50%;
+  font-size: 75%;
+  color: var(--color-primary);
+  background-color: white;
+  border: 6px solid var(--color-button-connect);
+  box-shadow: 0 10px 15px -5px rgba(0, 0, 0, 0.3); /* Ombre portée */
+}
+
+.container4__homepage {
+  display: flex;
+  justify-content: center;
+  padding: 2%;
+  height: 15%;
+  background-color:var(--color-secondary);
+}  
+
+
+.buttonBooking .buttonBooking2 {
+  padding: 2%;
+  width: 48%;
+  height: 100%;
+  font-size: 16px;
+  color: white;
+  border-radius: 10px;
+  background-color: var(--color-button-booking);
+  box-shadow: 0 10px 15px -5px rgba(0, 0, 0, 0.3); /* Ombre portée */
+}
+
+
+
+.buttonBooking:hover {
+  background-color: var(--color-button-booking-hover);
+}
+
+.buttonSession, .buttonDeleteAccount {
+  border: none;
+  margin-top: 5%;
+  margin-bottom: 5%;
+  background-color: var(--color-secondary);
+  font-size: 16px;
+}
+
+.welcomeTitle {
+  margin: 10%;
+  font-size: 24px;
+}
+
+#submitFormInscription, #updateButton {
+  width: 100%;
+  background-color:var(--color-button-create-account);
+  color:white;
+  box-shadow: 0 10px 15px -5px rgba(0, 0, 0, 0.3); /* Ombre portée */
+  border: none;
+  border-radius: 5px;
+  margin-bottom: 5%;
+  padding: 2%;
+}
+
+#submitFormInscription:hover {
+  background-color:var(--color-button-create-account-hover);
+  border-radius: 5px;
+}
+
+#submitFormConnection, #buttonDeconnection {
+  width: 100%;
+  background-color:var(--color-button-connect);
+  color:black;
+  box-shadow: 0 10px 15px -5px rgba(0, 0, 0, 0.3); /* Ombre portée */
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  padding: 2%;
+  margin-bottom: 5%;
+}
+
+#submitFormConnection:hover, #buttonDeconnection:hover {
+  background-color:var(--color-button-connect-hover);
+}
+
+
+/* Tablette (768px et plus) */
+ @media (min-width: 768px) {
+
+  .chrono{
+    width: 50%;
+    justify-self: center;
+  }
+
+}
+
+
+
+@media (min-width: 1050px) {
+
+  .container1__homepage {
+    padding-top: 10%;
+  
+  }
+  .container2__homepage {
+
+   align-items:center ;
+   
+  }
+  .Picture__1 {
+    width: 50%;
+
+  }
+
+  .logoHomepage {
+    width: 20%;
+  }
+}
