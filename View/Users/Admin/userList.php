@@ -5,7 +5,7 @@
 <div class="container1__homepage">
     <h1>Gestion des utilisateurs</h1>
     <?php
-
+var_dump($users);
     if (!empty($users)) {
        
         foreach ($users as $user) {
@@ -14,31 +14,35 @@
     <ul>
             <li class="news">
                 <h2>
-            
-                    <label for="id">ID: <?= htmlspecialchars($user['Identifier']) ?></label>
-                    <input type="text" id="nom" name="Nom" value="<?= htmlspecialchars($user['Nom']) ?>">
-
+            <label for="idUser">ID: <?= htmlspecialchars($user['Identifier']) ?></label>
                 </h2>
-
-                <div>
-                <!-- <label for="nom">Nom: <?= htmlspecialchars($user['Identifier']) ?></label>
-                <input type="text" id="nom" name="Nom" value="<?= htmlspecialchars($user['Nom']) ?>">
-                    <br/>
-                    <br/>
-                    Prénom: <?= nl2br(htmlspecialchars($user['LastName'])) ?>
-                    <br/>
-                    <br/>
-                    Adresse mail: <?= nl2br(htmlspecialchars($user['MailAddress'])) ?>
-                    <br/>
-                    <br/>
-                    Numéro de téléphone: <?= nl2br(htmlspecialchars($user['PhoneNumber'])) ?>
-                    <br/>
-                    <br/> -->
-                    <form    method="POST" action="/Controller/Admin/userList.php">
+            <form class="updatUserForm"method="POST" action="AdminUpdateUserList">
+            <label for="Nom">Nom:</label>
+    <input type="text" id="Nom" name="Nom" value="<?= htmlspecialchars($user['LastName']) ?>" >
+    <div id = "lastNameAlert"></div>
+    <br />
+    <br />
+    <br />
+    <label for="prenom">Prénom:</label> 
+    <input type="text" id="Prenom" name="Prenom" value="<?= htmlspecialchars($user['FirstName']) ?>" >
+    <div id = "firstNameAlert"></div>
+    <br />
+    <br />
+    <br />
+     <label for="email">E-mail:</label> 
+    <input type="email" id="Email" name="Email" value="<?= htmlspecialchars($user['MailAddress']) ?>" >
+    <br />
+    <div id = "mailAlert"></div>
+    <br />
+     <label for="numero de téléphone">Numéro de téléphone:</label> 
+    <input type="number" id="Telephone" name="Telephone" value="<?= htmlspecialchars($user['PhoneNumber']) ?>" >
+    <br />
+    <div id = "phoneAlert"></div>
+    <br />
     <div class="roleDiv">
-        <h1 class="role">Role:</h1>
-        <select class="roleSelect">
-            <option value="<?= htmlspecialchars($user['Role']) ?>" selected
+        <h1 class="role">Rôle:</h1>
+        <select class="roleSelect" name="Role">
+            <option value="<?= htmlspecialchars($user['Role']) ?>" selected>
                 <?= htmlspecialchars($user['Role']) ?>
             </option>
             <option value="<?= $user['Role'] == 1 ? 0 : 1 ?>">
@@ -48,13 +52,13 @@
     </div>
     
     <input type="hidden" name="idUser" class="idUserInput" value="<?= htmlspecialchars($user['Identifier']) ?>">
-    <input type="hidden" name="idRole" class="idRoleInput">
-    <button class="saveButton"  type="submit">Enregistrer</button>
+    <input type="hidden" name="idRole" class="idRoleInput" value="<?= htmlspecialchars($user['Role']) ?>">
+    <button class="saveButton"  type="submit">Modifier</button>
     
 </form>
 
-                    <button id="deleteButton" value="<?= htmlspecialchars($user['Identifier']) ?>">Supprimer</button>
-                    <form class="deleteAccount" method="POST" action="/Controller/Admin/userList.php">
+                    <button class="deleteButton" value="<?= htmlspecialchars($user['Identifier']) ?>">Supprimer</button>
+                    <form class="deleteAccount" method="POST" action="AdminDeleteUserList">
                     <h1 class="questionBooking">Souhaitez-vous vraiment supprimer ce compte ? ID:</h1>
                             <h2 class="questionBookingTitle"></h2>
                             <input type="hidden" name="deleteUser" value="1">

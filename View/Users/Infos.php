@@ -2,7 +2,7 @@
 
 <?php ob_start(); 
 
-var_dump($user);
+// var_dump($user);
 
  if (!isset($_SESSION['user'])){
     header("Location: /Controller/homepage.php");
@@ -12,7 +12,7 @@ var_dump($user);
 
 <div class="container1__homepage">
     <h1>Mes informations</h1>
-<form id="formInscription" method="POST" action="/Controller/sessionInfos.php">
+<form id="formInscription" action="UpdateInfosUser" method="POST">
     <label for="nom">Votre nom:</label>
     <input type="text" id="nom" name="Nom" value="<?= htmlspecialchars($user['Nom']) ?>" required>
     <br />
@@ -36,9 +36,8 @@ var_dump($user);
      <label for="Mot de passe actuel">Votre mot de passe actuel:</label>
      <input type="password" id="Mot_de_passe" name="Mot_de_passe" value="<?= htmlspecialchars($user['Mot_de_passe']) ?>" readonly>
      <br />
-    <br />
-    <label for="pass1">Modifier le mot de passe:</label> 
-    
+     <br />
+    <label for="pass1">Nouveau mot de passe:</label> 
     <input type="password" id="pass1" name="pass1" value="" placeholder="Saisissez un nouveau mot de passe" >
     <br />
     <br />
@@ -50,7 +49,7 @@ var_dump($user);
     <button id="updateButton"  >Modidier mes informations</button>
  
 
-<div class="updateDiv" action="../../Controller/bookingCancellation.php" method="POST">
+<div class="updateDiv" >
                             <h1 class="questionBooking">Confirmez-vous ces modifications ?</h1>
                             
                             <div class="answerContainer">

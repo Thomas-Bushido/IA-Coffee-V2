@@ -10,8 +10,8 @@ if (!isset($_SESSION['user']) || $_SESSION['user']['role'] !== 1) {
 <div class="container1__homepage">
     <h1 class="welcomeTitle">Bienvenue, <?php echo $_SESSION['user']['email']
     ?></h1>
-        <button class="buttonSession"><a href="userList">Gestion des utilisateurs</a></button>
-        <button class="buttonSession"><a href="eventList">Gestion des événements</a></button>
+        <button class="buttonSession"><a href="AdminGetUserList">Gestion des utilisateurs</a></button>
+        <button class="buttonSession"><a href="AdminGetEventList">Gestion des événements</a></button>
         <button class="buttonSession">Gestion des Réservations</button>
         <button class="buttonSession"><a href="Infos">Mes informations</a></button>
         <button class="buttonDeleteAccount" data-id="<?= htmlspecialchars($_SESSION['user']['id']); ?>">Supprimer mon compte</button>

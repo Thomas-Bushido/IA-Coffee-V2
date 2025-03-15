@@ -8,7 +8,7 @@
     <h1 class="mainTitleEvent"> Gestion des Evenements</h1>
     <div class="addButtonDiv"><button id="addButton"><img id="addLogo" src="/View/Public/Images/icons8-plus-64.png" alt="image"></button></div>
     <div class="addEventDiv">
-        <form class="addEventForm" method="POST" action="/Controller/Admin/eventList.php">
+        <form class="addEventForm" method="POST" action="AdminCreateEventList">
             <h1>Ajoutez un nouvel événement à la liste</h1>
             <label for="titre">Titre:</label>
             <input type="text" id="addTitre" name="titre" require>
@@ -49,7 +49,7 @@ if (!empty($events)) {
     foreach ($events as $event) {
 ?>
         <div class="card__event">
-            <form class="formModifyEvent" action="/Controller/Admin/eventList.php" method="POST">
+            <form class="formModifyEvent" action="AdminUpdateEventList" method="POST">
                 <input type="hidden" name='idEventModify' data-id="<?= htmlspecialchars($event['idEvent']); ?>" value="<?= htmlspecialchars($event['idEvent']); ?>">
                 <label for="nom">ID:<?= htmlspecialchars($event['idEvent']) ?></label>
                 <br />
@@ -94,7 +94,7 @@ if (!empty($events)) {
                 data-title="<?= htmlspecialchars($event['Title']); ?>"
                 value="<?= htmlspecialchars($event['idEvent']); ?>">Supprimer</button>
 
-            <form class="cancellation" action="/Controller/Admin/eventList.php" method="POST">
+            <form class="cancellation" action="AdminDeleteEventList" method="POST">
                 <h1 class="questionBooking">Souhaitez-vous vraiment supprimer cet événement:</h1>
                 <h2 class="questionBookingTitle"></h2>
                 <div class="answerContainer">

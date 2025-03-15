@@ -2,36 +2,27 @@
 include_once 'MainController.php';
 require_once(__DIR__ . '/../config.php');
 
-class UserList extends Controller{
-    private $getUserModel;
+class AdminUpdateUserList extends Controller{
     private $updateUser;
-    private $deleteUser;
+  
     public function __construct() {
-        $this->loadModel("GetUser");
-        $this->getUserModel = $this->model;
+        $this->loadModel("UpdateUser");
+        $this->updateUser = $this->model;
     }
 
-    public function index() {
-        $users = $this->updateByAdmin (); 
-        $this->render('Users/Admin/userList', ['users' => $users]);
-
-
-        // require(ROOT . 'View/Users/Admin/userList.php');
-}
 
  
-public function updateByAdmin (){
-
-    if ($_SERVER["REQUEST_METHOD"] === "POST") {
+public function index (){
+       if ($_SERVER["REQUEST_METHOD"] === "POST") {
         if(isset($_POST['idRole']) && isset($_POST['idUser'])) {
             $userId = $_POST['idUser'];
             $firstname = $_POST['Nom'];
             $lastname = $_POST['Prenom'];
-            $email = $_POST['Adresse_mail'];
-            $phone = $_POST['Numero_de_telephone'];
+            $email = $_POST['Email'];
+            $phone = $_POST['Telephone'];
             $role = $_POST['idRole'];
-return $this->updateUser->updateByAdmin($userId, $firstname, $lastname, $email, $phone, $role);
-
+ $this->updateUser->updateUserByAdmin($userId, $firstname, $lastname, $email, $phone, $role);
+ header("Location: AdminGetUserList"); // Redirection après mise à jour
 }
     }
 
@@ -71,4 +62,3 @@ return $this->updateUser->updateByAdmin($userId, $firstname, $lastname, $email, 
 
 
  
-

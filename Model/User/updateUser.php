@@ -28,24 +28,24 @@ class UpdateUser extends Model{
         
     }
 
-	public function updateByAdmin($userId, $firstname, $lastname, $email, $phone, $role) {
+	public function updateUserByAdmin($userId, $firstname, $lastname, $email, $phone, $role) {
 	
 		
 			try {
 				// 🔍 Vérifier si l'utilisateur a déjà réservé cet événement
 				$statement = $this->_connexion->prepare('
 					UPDATE utilisateur
-					SET idRole = :idRole
+					SET Nom = :Nom, Prenom = :Prenom, Adresse_mail = :Email, Numero_de_telephone = :Telephone, idRole = :idRole
 					WHERE utilisateur.idUser = :idUser 
 				');
 				$statement->execute([
 					':idUser' => $userId,
-					':idRole' => $role
+					':Nom' => $firstname,
+					':Prenom' => $lastname,
+					':Email' => $email,
+					':Telephone' => $phone,
+					':idRole' => $role,
 				]);
-		
-				header("Location: /Controller/Admin/userList.php");
-				exit();
-				
 			} catch (PDOException $e) {
 				echo "❌ Erreur lors de l'annulation' : " . $e->getMessage();
 			}

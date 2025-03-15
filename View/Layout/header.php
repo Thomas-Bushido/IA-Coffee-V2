@@ -21,7 +21,14 @@ if (!isset($_SESSION['user'])) { // Vérifie si l'utilisateur n'est pas connect�
                <img class='img__user'src="/View/Public/Images/Logo3-user.png" alt="Logo">
            </a>
    <?php
-       } else { ?> 
+       } else if ($_SESSION['user']['role'] == 1) { // Si l'utilisateur est connecté, vérifie son rôle
+       
+        ?>  
+                <a class='link__user' href="sessionAdmin">
+                    <img class='img__user'src="/View/Public/Images/Logo3-user.png" alt="Logo">
+                </a>
+        <?php
+            } else { ?> 
            <a class='link__user' href="authController">
                <img class='img__user' src="/View/Public/Images/Logo3-user.png" alt="Logo">
            </a>
