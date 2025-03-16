@@ -31,7 +31,7 @@ class AuthController extends Controller{
                 if ($_POST['action'] == "register") {
                     $this->connection->index();
                 } elseif ($_POST['action'] == "login") {
-                    $this->inscription->inscription();
+                    $this->inscription->index();
                 } else {
                     die("❌ Action non reconnue.");
                 }

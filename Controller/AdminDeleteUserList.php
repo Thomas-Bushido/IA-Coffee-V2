@@ -18,7 +18,7 @@ public function index (){
             $userId = $_POST['idUser'];
          
  $this->deleteUser->delete($userId);
- header("Location: AdminGetUserList"); // Redirection après mise à jour
+ header('Location: sessionAdminUserlist'); // Redirection après mise à jour
 }
     }
 

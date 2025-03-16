@@ -18,7 +18,7 @@ class AdminDeleteEventList extends Controller{
         
         $this->deleteEventModel->delete($EventId);
         
-        header("Location: AdminGetEventList");
+        header("Location: sessionAdminEventList");
         exit();
     }
 

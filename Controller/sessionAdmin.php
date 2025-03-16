@@ -1,5 +1,5 @@
 <?php
-include_once 'MainController.php';
+// include_once 'MainController.php';
 require_once(__DIR__ . '/../config.php');
 ob_start();
 

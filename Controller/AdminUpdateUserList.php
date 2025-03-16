@@ -21,8 +21,9 @@ public function index (){
             $email = $_POST['Email'];
             $phone = $_POST['Telephone'];
             $role = $_POST['idRole'];
- $this->updateUser->updateUserByAdmin($userId, $firstname, $lastname, $email, $phone, $role);
- header("Location: AdminGetUserList"); // Redirection après mise à jour
+            $this->updateUser->updateUserByAdmin($userId, $firstname, $lastname, $email, $phone, $role);
+            header('Location: sessionAdminUserlist');
+
 }
     }
 

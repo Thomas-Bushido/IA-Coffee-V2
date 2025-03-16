@@ -2,21 +2,22 @@
 include_once 'MainController.php';
 require_once(__DIR__ . '/../config.php');
 
+
 class AdminGetUserList extends Controller{
     private $getUserModel;
-    // private $updateUser;
-    // private $deleteUser;
+
     public function __construct() {
         $this->loadModel("GetUser");
         $this->getUserModel = $this->model;
     }
 
-    public function index() {
-        // $users = $this->updateByAdmin (); 
-        // $this->render('Users/Admin/userList', ['users' => $users]);
-
-        $users = $this->getUserModel->get();
-        $this->render('Users/Admin/userList', ['users' => $users]);
+    public function getUserList() {
+        if (!isset($_SESSION['user'])) {
+            header("Location: /login"); // Redirection si l'utilisateur n'est pas connecté
+            exit();
+        }
+        return $this->getUserModel->get();
+         
         // require(ROOT . 'View/Users/Admin/userList.php');
 }
 

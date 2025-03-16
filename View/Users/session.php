@@ -4,8 +4,8 @@
 $title = "session utilisateur"; 
 ob_start(); 
  
-
-
+var_dump($_SESSION);
+var_dump($bookings);
 
 ?>
 
@@ -48,7 +48,7 @@ ob_start();
                         <?= htmlspecialchars($booking['Lieu']) ?>
                     </p>
                      <button class="buttonCancelBooking" data-title="<?= htmlspecialchars($booking['Title']); ?>" value="<?= htmlspecialchars($booking['idBooking']); ?>">Annuler</button>
-                      <form class="cancellation" action="session" method="POST">
+                      <form class="cancellation" action="DeleteBookingController" method="POST">
                             <h1 class="questionBooking">Souhaitez-vous vraiment annuler cette réservation:</h1>
                             <h2 class="questionBookingTitle"></h2>
                             <div class="answerContainer">

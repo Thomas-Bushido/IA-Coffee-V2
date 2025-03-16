@@ -22,7 +22,7 @@ class AdminCreateEventList extends Controller{
         $entrants = $_POST['place'];
 
         $this->createEventModel->create($title, $date, $hour, $description, $address, $entrants);
-        header("Location: AdminGetEventList");
+        header("Location: sessionAdminEventList");
     }
 
 }

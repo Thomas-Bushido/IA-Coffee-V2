@@ -1,12 +1,12 @@
 <?php
 include_once 'MainController.php';
 
-class Booking extends Controller {
-    private $createModel;
+class CreateBookingController extends Controller {
+    private $createBookingModel;
     
     public function __construct() {
         $this->loadModel('createBooking');
-        $this->createModel = $this->model;
+        $this->createBookingModel = $this->model;
     }
 
     public function index() {
@@ -21,7 +21,7 @@ class Booking extends Controller {
                 $userId = $_SESSION['user']['id'] ?? null;
 
                 if ($userId) {
-                    $this->createModel->create($idEventBooked, $userId);
+                    $this->createBookingModel->create($idEventBooked, $userId);
                     header("Location: session");
                     exit();
                 } else {
