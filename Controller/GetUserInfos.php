@@ -3,41 +3,46 @@ include_once 'MainController.php';
 require_once(__DIR__ . '/../config.php'); 
 ob_start();
 
+ class GetUserInfos extends Controller {
+     private $getUserModel;
 
-class Infos extends Controller {
-      private $getUserModel;
-   
+   public function __construct() {
+       // Charger le modèle nécessaire
+        $this->loadModel("GetUser");
+        $this->getUserModel = $this->model;
+       
 
-      public function __construct() {
-          // Charger les modèles nécessaires
-          $this->loadModel("GetUser");
-          $this->getUserModel = $this->model;
-      }
+         }
 
-  
 
     public function index() {
-        // Récupérer les infos de l'utilisateur
-            $user = $this->infoUser(); 
-            $this->render('Users/Infos', ['user' => $user]);
- }
+//         if (!isset($_SESSION['user']) || !isset($_SESSION['user']['id'])) {
+//             header("Location: /login");
+//             exit();
 
-
-    public function infoUser() {
-        if (isset($_SESSION['user']['id'])) {
-            $userId = $_SESSION['user']['id'];
-            return $this->getUserModel->getUserById($userId);
+       $id = $_SESSION['user']['id'];
+       return $this->getUserModel->getUserById($id);
+    
+      
         }
-        return [];
-    }
-    }
- 
+    
+//         $idUser = $_SESSION['user']['id'];
+//         $infos = $this->getUserModel->getUserById($idUser);
+    
+//         // Vérifier que la requête a bien retourné un tableau
+//         if (!is_array($infos) || empty($infos)) {
+//             echo "Erreur : Impossible de récupérer les informations de l'utilisateur.";
+//             exit();
+        }
+    
+//         $this->render('Users/Infos', ['infos' => $infos]);
+//     }}
 
-// Vérifier si l'utilisateur est bien connecté
-if (!isset($_SESSION['user']['id'])) {
-    echo "Accès interdit.";
-    exit;
-}
+// // Vérifier si l'utilisateur est bien connecté
+// if (!isset($_SESSION['user']['id'])) {
+//     echo "Accès interdit.";
+//     exit;
+// }
 
 
 

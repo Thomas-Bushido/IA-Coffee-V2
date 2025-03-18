@@ -9,7 +9,7 @@ require_once __DIR__ . '/../src/dbConnect.php';
 class UpdateUser extends Model{
 
 
-    public function updateUser($userId, $firstname, $lastname, $email, $phone, $mdp) {
+    public function update($userId, $firstname, $lastname, $email, $phone, $mdp) {
         
             $statement = $this->_connexion->prepare(
        	"UPDATE utilisateur 

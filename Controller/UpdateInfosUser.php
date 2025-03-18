@@ -16,37 +16,38 @@ class UpdateInfosUser extends Controller {
           $this->loadModel("GetUser");
           $this->currentPassModel = $this->model;
       }
-
-      
-
-    public function index() {
-        if ($_SERVER["REQUEST_METHOD"] === "POST") {
-            // Vérifier si l'utilisateur est connecté
-            if (!isset($_SESSION['user']['id'])) {
-                echo "Accès interdit.";
-                exit;
-            }
-
-            $userId = $_SESSION['user']['id'];
-
-            // Sécuriser les entrées
-            $firstname = htmlspecialchars($_POST['Prenom']);
-            $lastname = htmlspecialchars($_POST['Nom']);
-            $email = $_POST['email'];
-            $phone = htmlspecialchars($_POST['telephone']);
-            $mdp = $_POST['pass2'];
-            if (empty($mdp)) {
-                // Récupérer l'ancien mot de passe si aucun nouveau n'est fourni
-                $user = $this->currentPassModel->getUserById($userId);
-                $mdp = $user['Mot_de_passe'] ?? null;
-            }
-            $this->updateUserModel->updateUser($userId, $firstname, $lastname, $email, $phone, $mdp);
+      public function index() {
+            if ($_SERVER["REQUEST_METHOD"] === "POST") {
+                // Vérifier si l'utilisateur est connecté
+                if (!isset($_SESSION['user']['id'])) {
+                    echo "Accès interdit.";
+                    exit;
+                }
         
-            header("Location: Infos"); // Redirection après mise à jour
+                $userId = $_SESSION['user']['id'];
+        
+                // Sécuriser les entrées
+                $firstname = htmlspecialchars($_POST['Prenom']);
+                $lastname = htmlspecialchars($_POST['Nom']);
+                $email = $_POST['email'];
+                $phone = htmlspecialchars($_POST['telephone']);
+                $mdp = $_POST['pass2'];
+                if (empty($mdp)) {
+                    // Récupérer l'ancien mot de passe si aucun nouveau n'est fourni
+                    $user = $this->currentPassModel->getUserById($userId);
+                    $mdp = $user['Password'] ?? null;
+                }
+                $this->updateUserModel->update($userId, $firstname, $lastname, $email, $phone, $mdp);
             
-    }
-    }
-}
+                $role= $_SESSION['user']['role'];
+                if($role===1){
+                header("Location: sessionAdminInfos"); // Redirection après mise à jour
+            } else {
+                header("Location: sessionUserinfos");
+            }
+        }
+        }
+        }
 
 
 // Vérifier si l'utilisateur est bien connecté

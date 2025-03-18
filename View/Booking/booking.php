@@ -10,44 +10,25 @@
 }
 ;?>
 <div class="container1__homepage">
-    <h1 class="mainTitleEvent">Evenements</h1>
+    <h1 class="mainTitleEvent">Gestion des réservations</h1>
     <?php
     // Vérifiez si $posts contient des données avant d'afficher
+    var_dump($bookings);
     if (!empty($bookings)) {
         foreach ($bookings as $booking) {
     ?>
             <div class="card__event">
                 <div class="topPart">
-                    <h1><?= $titleEvent = htmlspecialchars($booking['Title']); ?></h1>
-
-                    <p class="descriptionEvent"><?= nl2br(htmlspecialchars($booking['Description'])) ?></p>
-
+                    <label for="Event"></label>
+                    <h1>Réservation pour l'événement:<?= $titleEvent = htmlspecialchars($booking['idEvent']); ?></h1>
+                    <label for="Event">Numéro de réservation:</label>
+                    <p class="descriptionEvent"><?= nl2br(htmlspecialchars($booking['idBooking'])) ?></p>
+                    <label for="Event">Utilisateur:</label>
+                    <p class="descriptionEvent"><?= nl2br(htmlspecialchars($booking['idUser'])) ?></p>
+                    <label for="Event">Statut de la réservation:</label>
+                    <p class="descriptionEvent"><?= nl2br(htmlspecialchars($booking['state'])) ?></p>
                 </div>
-                <div class="bottomPart">
-                    <p class="infosEvent">
-                        le <?= htmlspecialchars($booking['Date']) ?><br> à <?= htmlspecialchars($booking['Heure']) ?>
-                    </p>
-                    <?php
-                    if (!isset($_SESSION['user']) || $_SESSION['user']['role'] !== 0) {
-                    ?> <button class="buttonBooking"><a href='authController'>Réserver une place</a></button> <?php
-                                                                                                                } else {
-                                                                                                                    ?>
-                        <button class="buttonBooking2" data-title="<?= htmlspecialchars($booking['Title']); ?>" value="<?= htmlspecialchars($booking['idEvent']); ?>">Réserver une place</button>
-
-
-                        <form class="confirmation" method="POST" action="booking" >
-                            <h1 class="questionBooking"></h1>
-                            <h2 class="questionBookingTitle"></h2>
-                            <div class="answerContainer">
-                                <button class="buttonYes" type="submit" name="idEvent">Oui</button>
-                                <button class="buttonNo">Non</button>
-                            </div>
-
-                        </form>
-                    <?php
-                                                                                                                }
-                    ?>
-
+                
                 </div>
             </div>
     <?php

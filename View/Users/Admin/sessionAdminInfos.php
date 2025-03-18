@@ -1,18 +1,17 @@
-<?php $title = "session utilisateur: informations "; ?>
+<?php $title = "session administrateur: informations personnelles"; ?>
 
 <?php ob_start(); 
 
-var_dump($infos);
+// var_dump($user);
 
  if (!isset($_SESSION['user'])){
     header("Location: /Controller/homepage.php");
     exit();
 }
 ?>
-
-
-
-
+ <?php
+ var_dump($infos);
+ ?>
 <div class="container1__homepage">
     <h1>Mes informations</h1>
 <form id="formInscription" action="UpdateInfosUser" method="POST">
@@ -76,4 +75,4 @@ var_dump($infos);
     <?php $content = ob_get_clean(); ?>
 <?php
 // Inclure le layout principal
-require_once(__DIR__ . '/../Layout/layout.php');
+require_once(__DIR__ . '/../../Layout/layout.php');

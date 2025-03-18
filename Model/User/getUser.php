@@ -33,15 +33,26 @@ public function get()
 
 }
 
-public function getUserById(int $userId)
+public function getUserById(int $userId): ?array
 {
-  
-        $sql = "SELECT * FROM utilisateur WHERE idUser = :user_id";
-		$statement = $this ->_connexion->prepare($sql);
-        $statement->execute(['user_id' => $userId]);
-        $user = $statement->fetch(PDO::FETCH_ASSOC);
-        return $user; // Retourne null si aucun utilisateur n'est trouvé
-  
+	$sql = "SELECT * FROM utilisateur WHERE idUser = :user_id";
+	$statement = $this->_connexion->prepare($sql); // Utiliser prepare() au lieu de query()
+	$statement->bindParam(':user_id', $userId, PDO::PARAM_INT);
+	$statement->execute();
+	
+	$user = $statement->fetch(PDO::FETCH_ASSOC);
+	
+	
+		return [
+			'Identifier' => $user['idUser'],
+			'FirstName' => $user['Nom'],
+			'LastName' => $user['Prenom'],
+			'MailAddress' => $user['Adresse_mail'],
+			'PhoneNumber' => $user['Numero_de_telephone'],
+			'Password' => $user['Mot_de_passe'],
+			'Role' => $user['idRole'],
+		];
+
 }
 
 

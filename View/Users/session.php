@@ -5,7 +5,7 @@ $title = "session utilisateur";
 ob_start(); 
  
 var_dump($_SESSION);
-var_dump($bookings);
+
 
 ?>
 
@@ -13,7 +13,7 @@ var_dump($bookings);
     <h1 class="welcomeTitle">Bienvenue, <?php 
     
         echo $_SESSION['user']['email'] ?></h1>
-        <button class="buttonSession"><a href="Infos">Mes informations</a></button>
+        <button class="buttonSession"><a href="sessionUserInfos">Mes informations</a></button>
         <button class="buttonDeleteAccount" data-id="<?= htmlspecialchars($_SESSION['user']['id']); ?>">Supprimer mon compte</button>
         <form class="deleteAccount" action="session" method="POST">
                             <h1 class="questionBooking">Souhaitez-vous vraiment supprimer votre compte ?</h1>
