@@ -15,7 +15,7 @@ if (!isset($setChronos)) {
 
   
 <div class="container1__homepage">
- <img class="logoHomepage" src="/View/Public/Images/logov3.png" alt="image">
+ <img class="logoHomepage" src="/View/Public/Images/logo_centre2.PNG" alt="image">
 </div>
 <h1>Les rendez vous incontournables sur l'IA</h1>
 <div class="container2__homepage">
@@ -34,7 +34,7 @@ if (!isset($setChronos)) {
 </div>
 </div>
 <div class="container4__homepage">
-    <button class="buttonBooking"><a href="event">Réserver une place</a></button>
+    <button class="buttonBooking"><a href="event">Accéder aux événements</a></button>
 </div>
       <!-- Passer la date/heure du prochain événement à JavaScript -->
       <script>

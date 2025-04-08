@@ -1,30 +1,98 @@
 
 
 .news {
+    border-radius: 12px;
+    border-top-right-radius: 12px;
+    margin-bottom: 10%;
+    width: 300px;
+    height:100%;
     
-    margin-bottom: 3%;
-    width: 100%;
-    padding: 2%;
-    background-color: var(--color-card-event);
+    background-color: white;
+   
     font-size: 16px;
 }
 
+.avatar {
+    height: 30%;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+    background-image: url("/View/Public/Images/avatar.png");
+    background-position: center;
+}
+
+
+
+.avatarInfos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    height: 70%;
+}
+
 ul {
+    display: flex;
+    justify-content: center;
     width: 100%;
+    height: 700px;
     list-style: none; /* Supprime les puces */
     padding: 0; /* Supprime le retrait par défaut */
     margin: 0; /* Supprime l'espace autour de la liste */
+    margin-bottom: 4%;
 }
 
+.updatUserForm {
+    height: 80%;
+    padding: 5%;
+}
+
+#Nom, #Prenom, #Email, #Telephone {
+    width: 100%;
+}
 .roleDiv {
     display: flex;
+    flex-direction: column;
+    align-items: center;
     width: 100%;
+    height: 15%;
+    padding: 2%;
+}
+
+.role {
+    width: 90%;
+}
+
+.deleteDiv {
+    display: flex;
+    align-items: center;
+    width: 90%;
+    height: 10%;
+    
+}
+
+.deleteAccount {
+    display: none;
 }
 
 
-.saveButton{
+.saveButton {
     
     width: 100%;
+    height: 10%;
+    background-color: var(--color-button-modify);
+    box-shadow: 0 10px 15px -5px rgba(0, 0, 0, 0.3); 
+    border: 5px;
+    color: white;
+    font-size: 18px;
+}
+
+.deleteButton {
+    width: 100%;
+    height: 75%;
+    text-align: center;
+    background-color: var(--color-button-saveCancel);
+    box-shadow: 0 10px 15px -5px rgba(0, 0, 0, 0.3);
+    border: 5px;
+    font-size: 18px;
 }
 
 
@@ -37,3 +105,19 @@ ul {
 #modifyButton {
    justify-content: flex-end;
 }
+
+
+
+/* Tablette (768px et plus) */
+@media (min-width: 768px) {
+
+    ul {
+        flex-direction: row;
+        width: 50%;
+    }
+  
+   
+  
+  
+  
+  }

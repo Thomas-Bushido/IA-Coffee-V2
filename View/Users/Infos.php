@@ -2,7 +2,7 @@
 
 <?php ob_start(); 
 
-var_dump($infos);
+// var_dump($infos);
 
  if (!isset($_SESSION['user'])){
     header("Location: /Controller/homepage.php");
@@ -14,7 +14,7 @@ var_dump($infos);
 
 
 <div class="container1__homepage">
-    <h1>Mes informations</h1>
+    <h1 class="mainTitleEvent">Mes informations</h1>
 <form id="formInscription" action="UpdateInfosUser" method="POST">
     <label for="nom">Votre nom:</label>
     <input type="text" id="nom" name="Nom" value="<?= htmlspecialchars($infos['LastName']) ?>" required>

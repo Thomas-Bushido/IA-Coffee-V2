@@ -1,4 +1,45 @@
 
+
+.container__eventList {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.card__event__eventList{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 12px;
+    border-top-right-radius: 12px;
+    margin: 3%;
+    width: 340px;
+    height:750px;
+    
+    background-color: white;
+   
+    font-size: 16px;
+
+}
+
+
+.pictureEvent {
+    width: 100%;
+    height: 35%;
+    background-image: url("/View/Public/Images/Artificial.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    border-top-right-radius: 12px;
+    border-top-left-radius: 12px;
+}
+
+.infoEvent {
+    height: 65%;
+}
+
 .addButtonDiv {
     margin-bottom: 3%;
 }
@@ -9,6 +50,7 @@
     flex-direction: column;
 
     align-items: center;
+    
 }
 #addButton {
     display: flex;
@@ -24,12 +66,20 @@ justify-content: center;
     width: 75%;
 }
 
+.titleAddEventDiv {
+    padding: 4%;
+    font-size: 20px;
+}
+
 .addEventDiv {
     display: none;
 
     top: 25%;
     width: 95%;
-    background-color: white;
+    border-radius: 12px;
+    background-color:var(--color-primary);
+    color: white;
+    z-index: 15;
 }
 
  .addEventForm {
@@ -38,12 +88,49 @@ justify-content: center;
     justify-content: center;
     align-items: center;
     width: 100%;
+    
+  
 } 
 
 #addTitre, #addDate, #addHeure, #addLieu, #addDecription, #addPlace {
     text-align: center;
     width: 80%;
     
+}
+
+#newEventButton, #cancelEventButton  {
+    background-color: var(--color-card-event);
+    border: none;
+    width: 70%;
+    height: 30px;
+    margin: 2%;
+}
+
+#cancelEventButton  {
+    margin-bottom: 4%;
+}
+
+.container__entrants {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 5%;
+}
+
+
+#entrantsModify, #bookingNumber {
+    width: 15%;
+}
+
+#descriptionModify {
+    width: 140%;
+    height: 70px;
+    font-size: 15px;
+}
+
+#bookingNumber {
+    border: none;
 }
 
 #updateButtonList{
@@ -55,6 +142,7 @@ justify-content: center;
   border-radius: 5px;
   margin-bottom: 5%;
   padding: 2%;
+  font-size: 16px;
 }
 
 #deleteButtonList{
@@ -68,9 +156,12 @@ justify-content: center;
   padding: 2%;
 }
 
-textarea {
+
+
+#addDescription {
     width: 90%; /* Prend toute la largeur du conteneur */
-    min-height: 60px; /* Hauteur minimale (ajuster selon besoin) */
+    font-size: 20px;
+    min-height: 70px; /* Hauteur minimale (ajuster selon besoin) */
     resize: vertical; /* Permet à l'utilisateur d'agrandir la zone si besoin */
 }
 
@@ -84,6 +175,27 @@ textarea {
     border-radius: 5px;
     background-color: var(--color-button-saveCancel);
     border: none;
-    margin-bottom: 2%;
     box-shadow: 0 10px 15px -5px rgba(0, 0, 0, 0.3);
+}
+
+@media (min-width: 768px) {
+
+    .container__eventList{
+        display: flex;
+        width: 100%;
+        flex-direction: row;
+        flex-wrap: wrap;
+       
+     }
+
+     
+.addEventDiv {
+    display: none;
+
+  
+    width: 50%;
+    
+  
+}
+  
 }

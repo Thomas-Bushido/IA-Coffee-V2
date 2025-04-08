@@ -1,0 +1,87 @@
+.card__eventDetail {
+
+    border-radius: 12px;
+    border-top-right-radius: 12px;
+    width: 95%;
+    max-width: 495px;
+    background-color: var(--color-card-event);
+    margin-bottom: 5%;
+    height: 600px;
+    
+}
+
+
+.topPartDetail {
+    display: flex;
+    flex-direction: column;
+    background-image: url("/View/Public/Images/Artificial.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    color: white;
+    width: 100%;
+    height: 50%;
+    border-top-right-radius: 12px;
+    border-top-left-radius: 12px;
+}
+
+.bottomPartDetail {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: bolder;
+    width: 100%;
+    height: 50%;
+}
+
+
+.descriptionEventDetail {
+    font-size: 20px;
+
+    text-align: center;
+    padding: 3%;
+    width: 100%;
+    height: 50%;
+}
+
+.infosEventDetail {
+    
+    text-align: center;
+    width: 50%;
+    height: 25%;
+   
+    
+}
+
+
+
+
+@media (min-width: 768px) {
+
+    .card__eventDetail {
+
+  
+        width: 495px;
+        background-color: var(--color-card-event);
+        margin-bottom: 5%;
+        height: 600px;
+        
+    }
+    
+  
+}
+
+
+  @media (min-width: 1050px) {
+
+    /* .card__event {
+   
+       width: 50%;
+       margin: 2%;
+      
+    }
+   */
+   
+  
+  
+  
+  }

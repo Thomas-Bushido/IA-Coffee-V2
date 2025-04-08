@@ -4,7 +4,7 @@
 
 
 <div class="container1__homepage">
-<h1 class="inscriptionTitle">Déjà un compte? Identifiez-vous</h1>
+<h1 class="mainTitleEvent">Déjà un compte? Identifiez-vous</h1>
     <form id="formConnection" method="POST"action="login">
     <!-- <label for="email">Votre e-mail:</label> -->
     <input type="email" id="email2"name="email2" placeholder="Entrez votre adresse mail" required>
@@ -22,8 +22,8 @@
 </div>
 
 <div class="container2__homepage">
-    <h1 class="inscriptionTitle">Ou</h1>
-    <h2 class="inscriptionTitle" >Créez votre compte</h2>
+    <h1 class="mainTitleEvent">Ou</h1>
+    <h2 class="mainTitleEvent" >Créez votre compte</h2>
 <form id="formInscription" method="POST" action="register">
     <!-- <label for="nom">Votre nom:</label> -->
     <input type="text" id="nom" name="nom" placeholder="Entrez votre nom" required>

@@ -5,6 +5,8 @@
 @import "/View/Public/Layout-Style/inscription.css";
 @import "/View/Public/Layout-Style/userList.css";
 @import "/View/Public/Layout-Style/eventList.css";
+@import "/View/Public/Layout-Style/eventDetail.css";
+@import "/View/Public/Layout-Style/booking.css";
 @import "/View/Public/Layout-Style/footer.css";
 @import "/View/Public/Base/variables.css";
 @import "/View/Public/Base/style.css";

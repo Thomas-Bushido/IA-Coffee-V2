@@ -3,9 +3,9 @@
 
 
 <div class="container1__homepage">
-    <h1>Gestion des utilisateurs</h1>
+    <h1 class="mainTitleEvent">Gestion des utilisateurs</h1>
     <?php
-var_dump($users);
+// var_dump($users);
     if (!empty($users)) {
        
         foreach ($users as $user) {
@@ -13,32 +13,34 @@ var_dump($users);
 
     <ul>
             <li class="news">
+            
+            <div class="avatar">
                 <h2>
-            <label for="idUser">ID: <?= htmlspecialchars($user['Identifier']) ?></label>
+            <p class="idCard" for="idUser">Utilisateur N°: <?= htmlspecialchars($user['Identifier']) ?></p>
                 </h2>
+                </div>
+            <div class="avatarInfos">
             <form class="updatUserForm"method="POST" action="AdminUpdateUserList">
+            <br />
             <label for="Nom">Nom:</label>
     <input type="text" id="Nom" name="Nom" value="<?= htmlspecialchars($user['LastName']) ?>" >
     <div id = "lastNameAlert"></div>
-    <br />
-    <br />
-    <br />
+    <br/>
+    <!-- <br /> -->
     <label for="prenom">Prénom:</label> 
     <input type="text" id="Prenom" name="Prenom" value="<?= htmlspecialchars($user['FirstName']) ?>" >
     <div id = "firstNameAlert"></div>
-    <br />
-    <br />
-    <br />
+     <br />
      <label for="email">E-mail:</label> 
     <input type="email" id="Email" name="Email" value="<?= htmlspecialchars($user['MailAddress']) ?>" >
-    <br />
+     
     <div id = "mailAlert"></div>
-    <br />
+     <br /> 
      <label for="numero de téléphone">Numéro de téléphone:</label> 
     <input type="number" id="Telephone" name="Telephone" value="<?= htmlspecialchars($user['PhoneNumber']) ?>" >
-    <br />
+    
     <div id = "phoneAlert"></div>
-    <br />
+     <br /> 
     <div class="roleDiv">
         <h1 class="role">Rôle:</h1>
         <select class="roleSelect" name="Role">
@@ -53,20 +55,28 @@ var_dump($users);
     
     <input type="hidden" name="idUser" class="idUserInput" value="<?= htmlspecialchars($user['Identifier']) ?>">
     <input type="hidden" name="idRole" class="idRoleInput" value="<?= htmlspecialchars($user['Role']) ?>">
+    
+    <br />
     <button class="saveButton"  type="submit">Modifier</button>
     
 </form>
 
-                    <button class="deleteButton" value="<?= htmlspecialchars($user['Identifier']) ?>">Supprimer</button>
+<div class="deleteDiv"><button class="deleteButton" value="<?= htmlspecialchars($user['Identifier']) ?>">Supprimer</button>
                     <form class="deleteAccount" method="POST" action="AdminDeleteUserList">
                     <h1 class="questionBooking">Souhaitez-vous vraiment supprimer ce compte ? ID:</h1>
-                            <h2 class="questionBookingTitle"></h2>
+                            <h2 class="questionBookingTitle">ID:<?= htmlspecialchars($user['Identifier']) ?></h2>
                             <input type="hidden" name="deleteUser" value="1">
                             <div class="answerContainer">
                                 <button class="buttonYes" type="submit" name="idUser" value="<?= htmlspecialchars($user['Identifier']) ?>">Oui</button>
                                 <button class="buttonNo">Non</button>
+                                </div>
+                                
                     </form>
+                    </div>              
                 </div>
+                
+                
+             
             </li>
             </ul>
     <?php

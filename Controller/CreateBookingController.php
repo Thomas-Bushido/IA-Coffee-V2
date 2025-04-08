@@ -20,10 +20,15 @@ class CreateBookingController extends Controller {
                 $idEventBooked = htmlspecialchars($_POST['idEvent']);
                 $userId = $_SESSION['user']['id'] ?? null;
 
-                if ($userId) {
+                if ($userId && $_SESSION['user']['role'] === 0) {
                     $this->createBookingModel->create($idEventBooked, $userId);
                     header("Location: session");
                     exit();
+                } elseif($userId && $_SESSION['user']['role'] === 1){
+                    $this->createBookingModel->create($idEventBooked, $userId);
+                    header("Location: sessionAdmin");
+                    exit();
+
                 } else {
                     echo "❌ Erreur : utilisateur non authentifié.";
                     exit();

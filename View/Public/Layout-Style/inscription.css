@@ -1,9 +1,9 @@
 
 #formConnection {
-    width: 100%;
+    width: 370px;
 }
 #formInscription {
-    width: 100%;
+    width: 370px;
 }
 
 
@@ -42,12 +42,12 @@ h2 {
 @media (min-width: 768px) {
 
     #formConnection {
-        width: 60%;
+        width: 50%;
     }
   
     #formInscription {
         align-items: center;
-        width: 60%;
+        width: 50%;
     }
    
   
@@ -58,12 +58,12 @@ h2 {
   @media (min-width: 1024px) {
 
     #formConnection {
-        width: 30%;
+        width: 20%;
     }
   
     #formInscription {
         align-items: center;
-        width: 30%;
+        width: 20%;
     }
     .inscriptionTitle {
         padding: 1%;

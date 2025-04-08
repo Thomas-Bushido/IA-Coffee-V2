@@ -12,7 +12,7 @@ class sessionAdminEventList extends Controller {
         }
 
         $getEventlist = new AdminGetEventList();
-        $events = $getEventlist->getEventList(); // Récupération des réservations
+        $events = $getEventlist->index(); // Récupération des réservations
 
         $role = $_SESSION['user']['role'];
 

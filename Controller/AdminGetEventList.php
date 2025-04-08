@@ -11,11 +11,12 @@ class AdminGetEventList extends Controller{
         $this->getEvent = $this->model;
     }
 
-    public function getEventList () {
+    public function index () {
+        
         $events = $this->getEvent->get();
         $this->render('Users/Admin/eventList', ['events' => $events]);
+        
     }
-
 }
 
 

@@ -13,24 +13,26 @@
     <h1 class="mainTitleEvent">Gestion des réservations</h1>
     <?php
     // Vérifiez si $posts contient des données avant d'afficher
-    var_dump($bookings);
+    // var_dump($bookings);
     if (!empty($bookings)) {
         foreach ($bookings as $booking) {
     ?>
-            <div class="card__event">
-                <div class="topPart">
+    
+            <div class="card__bookingAdmin">
+                <div class="topPartBooking">
+                <p class="idCard">Booking N°:<?= nl2br(htmlspecialchars($booking['idBooking'])) ?></p>
+                </div>
+                <div class="bottomPartBooking">
                     <label for="Event"></label>
                     <h1>Réservation pour l'événement:<?= $titleEvent = htmlspecialchars($booking['idEvent']); ?></h1>
-                    <label for="Event">Numéro de réservation:</label>
-                    <p class="descriptionEvent"><?= nl2br(htmlspecialchars($booking['idBooking'])) ?></p>
-                    <label for="Event">Utilisateur:</label>
-                    <p class="descriptionEvent"><?= nl2br(htmlspecialchars($booking['idUser'])) ?></p>
-                    <label for="Event">Statut de la réservation:</label>
-                    <p class="descriptionEvent"><?= nl2br(htmlspecialchars($booking['state'])) ?></p>
+                    
+                    <label for="Event">Utilisateur N°: <?= nl2br(htmlspecialchars($booking['idUser'])) ?></label>
+                    <label for="Event">Statut de la réservation: <?= nl2br(htmlspecialchars($booking['state'])) ?></label>
+                    
                 </div>
                 
                 </div>
-            </div>
+            
     <?php
         }
     } else {

@@ -9,7 +9,7 @@
     <div class="addButtonDiv"><button id="addButton"><img id="addLogo" src="/View/Public/Images/icons8-plus-64.png" alt="image"></button></div>
     <div class="addEventDiv">
         <form class="addEventForm" method="POST" action="AdminCreateEventList">
-            <h1>Ajoutez un nouvel événement à la liste</h1>
+            <h1 class="titleAddEventDiv">Ajoutez un nouvel événement</h1>
             <label for="titre">Titre:</label>
             <input type="text" id="addTitre" name="titre" require>
             <div id="titleAlert"></div>
@@ -37,56 +37,61 @@
             <input type="number" id="addPlace" name="place">
             <div id="entrantsAlert"></div>
             <br />
-            <button id="newEventButton" type="submit">Ajouter l'événement</button>
+            <button id="newEventButton" type="submit">Ajouter</button>
             <button id="cancelEventButton">Annuler</button>
         </form>
     </div>
 </div>
-
+<div class="container__eventList">
 <?php
 // Vérifiez si $posts contient des données avant d'afficher
+// var_dump($events);
 if (!empty($events)) {
     foreach ($events as $event) {
 ?>
-        <div class="card__event">
+  
+        <div class="card__event__eventList">
+            <div class="pictureEvent">
+            
+            <p class="idCard">Evenement N°:<?= htmlspecialchars($event['idEvent']) ?></p>
+            </div>
+            <div class="infoEvent">
             <form class="formModifyEvent" action="AdminUpdateEventList" method="POST">
-                <input type="hidden" name='idEventModify' data-id="<?= htmlspecialchars($event['idEvent']); ?>" value="<?= htmlspecialchars($event['idEvent']); ?>">
-                <label for="nom">ID:<?= htmlspecialchars($event['idEvent']) ?></label>
+            <input type="hidden" name='idEventModify' data-id="<?= htmlspecialchars($event['idEvent']); ?>" value="<?= htmlspecialchars($event['idEvent']); ?>">
                 <br />
                 <label for="titleModify">Titre:</label>
                 <input type="text" id="titleModify" name="titleModify" value="<?= htmlspecialchars($event['Title']) ?>">
-                <br />
-                <br />
                 <br />
                 <label for="dateModify">Date:</label>
                 <input type="date" id="dateModify" name="dateModify" value="<?= htmlspecialchars($event['Date']) ?>">
                 <br />
                 <!-- <div id = "mailAlert"></div> -->
-                <br />
+               
                 <label for="hourModify">Heure:</label>
                 <input type="heure" id="hourModify" name="hourModify" value="<?= htmlspecialchars($event['Heure']) ?>">
                 <br />
                 <!-- <div id = "phoneAlert"></div> -->
-                <br />
+               
                 <label for="address">Lieu:</label>
                 <input type="text" id="addressModify" name="addressModify" value="<?= htmlspecialchars($event['Lieu']) ?>">
                 <br />
                 <br />
                 <label for="descriptionModify">Description:</label>
-                <input type="text" id="descriptionModify" name="descriptionModify" value="<?= htmlspecialchars($event['Description']) ?>">
-                <br />
+                <textarea type="text" id="descriptionModify" name="descriptionModify" value="<?= htmlspecialchars($event['Description']) ?>"><?= htmlspecialchars($event['Description']) ?></textarea>
+               
                 <br />
                 <!-- <div id = "passAlert"></div> -->
-                <br />
-                <div>
+               
 
-                    <div>
-                        <h1>Nombre de participants:</h1>
-                    </div>
-                    <label for="entrantsModify">Nombre de participant maximum:</label>
+
+                    <div class="container__entrants">
+                    <label for="bookingNumber">Nombre de participant:</label>
+                        <input type="text" id="bookingNumber" name="bookingNumber" value="<?= htmlspecialchars($event['BookingNumber']) ?>">
+                    
+                    <label for="entrantsModify">Nombre de places maximum:</label>
                     <input type="text" id="entrantsModify" name="entrantsModify" value="<?= htmlspecialchars($event['entrants']) ?>">
                 </div>
-
+                </div>
                 <button type="submit" id="updateButtonList" data-id="<?= htmlspecialchars($event['idEvent']); ?>" value="<?= htmlspecialchars($event['idEvent']); ?>">Modifier</button>
             </form>
             <button class="buttonCancelBooking"
@@ -105,19 +110,19 @@ if (!empty($events)) {
             </form>
 
         </div>
-        </div>
+        
+        
 <?php
     }
 } else {
     echo "<p>Aucun événement disponible pour le moment.</p>";
 }
 ?>
-
-
+</div>
+</div>
 <script src="/View/Public/eventList.js"></script>
 <?php $content = ob_get_clean(); ?>
 
-</div>
 <?php
 // Inclure le layout principal
 require_once(__DIR__ . '/../../Layout/layout.php');

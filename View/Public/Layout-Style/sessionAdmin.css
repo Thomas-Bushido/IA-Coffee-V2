@@ -1,0 +1,33 @@
+.container1__options {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+
+@media (min-width: 768px) {
+
+    .container1__options {
+        display: flex;
+        width: 60%;
+        
+        flex-direction: column;
+        align-items: center;
+    }
+    
+}
+
+
+@media (min-width:1024px) {
+
+    .container1__options {
+        display: flex;
+        width: 60%;
+        
+        flex-direction: column;
+        align-items: center;
+    }
+    
+}

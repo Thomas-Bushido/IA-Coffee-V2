@@ -1,38 +1,38 @@
 console.log(users);
-let ckeckmail = [];
-console.log(ckeckmail);
-users.forEach((user) => ckeckmail.push(user["MailAddress"]));
+
+let checkmail = [];
+users.forEach((user) => checkmail.push(user["MailAddress"]));
 
 document.addEventListener("DOMContentLoaded", function () {
-  const firstName = document.getElementById("Prenom");
-  const lastName = document.getElementById("Nom");
-  const email = document.getElementById("Email");
-  const phone = document.getElementById("Telephone");
-  const forms = document.querySelectorAll(".updatUserForm"); // Ajout du point pour la classe
-  
-  const mailAlert = document.getElementById("mailAlert");
-  const phoneAlert = document.getElementById("phoneAlert");
-  const lastNameAlert = document.getElementById("lastNameAlert");
-  const firstNameAlert = document.getElementById("firstNameAlert");
-
-  // Récupérer l'ancienne adresse e-mail de l'utilisateur connecté
-  const oldEmail = email.value;
-  const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-  const phoneRegex = /^\+?[0-9]{10,15}$/;
+  const forms = document.querySelectorAll(".updatUserForm");
 
   forms.forEach((form) => {
+    const firstName = form.querySelector("#Prenom");
+    const lastName = form.querySelector("#Nom");
+    const email = form.querySelector("#Email");
+    const phone = form.querySelector("#Telephone");
+
+    const mailAlert = form.querySelector("#mailAlert");
+    const phoneAlert = form.querySelector("#phoneAlert");
+    const lastNameAlert = form.querySelector("#lastNameAlert");
+    const firstNameAlert = form.querySelector("#firstNameAlert");
+
+    const oldEmail = email.value;
+    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    const phoneRegex = /^\+?[0-9]{10,15}$/;
+
     form.addEventListener("submit", function (event) {
-      // Trouver l'input caché correspondant à cet utilisateur
       if (!firstName.value) {
-        event.preventDefault(); // Empêche l'envoi du formulaire
+        event.preventDefault();
         firstNameAlert.textContent = "Le prénom est invalide !";
         firstNameAlert.style.color = "red";
       } else {
         firstNameAlert.textContent = "Le prénom est valide";
         firstNameAlert.style.color = "green";
       }
+
       if (!lastName.value) {
-        event.preventDefault(); // Empêche l'envoi du formulaire
+        event.preventDefault();
         lastNameAlert.textContent = "Le nom est invalide !";
         lastNameAlert.style.color = "red";
       } else {
@@ -41,58 +41,53 @@ document.addEventListener("DOMContentLoaded", function () {
       }
 
       if (!phoneRegex.test(phone.value)) {
-        event.preventDefault(); // Empêche l'envoi du formulaire
+        event.preventDefault();
         phoneAlert.textContent = "Le numéro de téléphone est invalide !";
         phoneAlert.style.color = "red";
       } else {
         phoneAlert.textContent = "Le numéro de téléphone est valide";
         phoneAlert.style.color = "green";
       }
-      let mailExists = ckeckmail.includes(email.value);
+
+      let mailExists = checkmail.includes(email.value);
       if (email.value !== oldEmail && mailExists) {
-        // Si l'email est différent de l'ancien ET qu'il existe déjà, on bloque
+        event.preventDefault();
         mailAlert.textContent = "Cette adresse mail est déjà utilisée !";
         mailAlert.style.color = "red";
       } else if (!emailRegex.test(email.value)) {
-        event.preventDefault(); // Empêche l'envoi du formulaire
+        event.preventDefault();
         mailAlert.textContent = "Cette adresse mail est invalide !";
         mailAlert.style.color = "red";
       } else {
-        console.log(mailAlert.value);
-        mailAlert.textContent = "Adresse mail validé";
+        mailAlert.textContent = "Adresse mail validée";
         mailAlert.style.color = "green";
       }
     });
 
-    // Sélectionner correctement les boutons de suppression
-    const deleteButtons = document.querySelectorAll(".deleteButton");
-    deleteButtons.forEach((button) => {
-      button.addEventListener("click", function (event) {
-   
+    // Suppression compte - contexte local
+    const deleteButton = form.closest(".avatarInfos").querySelector(".deleteButton");
+    const deleteForm = form.closest(".avatarInfos").querySelector(".deleteAccount");
 
-        const deleteForm = button.closest("div").querySelector(".deleteAccount");
-        const yesButton = document.querySelector(".buttonYes");
-        const questionBookingTitle = document.querySelector(".questionBookingTitle");
-        const noButton = document.querySelector(".buttonNo");
-        const idUser = button.value;
+    const yesButton = deleteForm.querySelector(".buttonYes");
+    const noButton = deleteForm.querySelector(".buttonNo");
+    const questionBookingTitle = deleteForm.querySelector(".questionBookingTitle");
 
-        questionBookingTitle.textContent = idUser;
-
-        deleteForm.style.display = "flex";
-        deleteForm.style.position = "fixed";
-
-        yesButton.setAttribute("value", idUser);
-
-        noButton.addEventListener("click", function (event) {
-          event.preventDefault();
-          deleteForm.style.display = "none";
-        });
-      });
+    deleteButton.addEventListener("click", function () {
+      const idUser = deleteButton.value;
+      questionBookingTitle.textContent = `ID: ${idUser}`;
+      deleteForm.style.display = "flex";
+      deleteForm.style.position = "fixed";
+      yesButton.setAttribute("value", idUser);
     });
 
-    // Gestion du changement de rôle
-    const roleSelect = document.querySelector(".roleSelect");
-    const idRoleInput = document.querySelector(".idRoleInput");
+    noButton.addEventListener("click", function (event) {
+      event.preventDefault();
+      deleteForm.style.display = "none";
+    });
+
+    // Rôle
+    const roleSelect = form.querySelector(".roleSelect");
+    const idRoleInput = form.querySelector(".idRoleInput");
 
     roleSelect.addEventListener("change", function () {
       idRoleInput.value = roleSelect.value;

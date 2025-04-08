@@ -11,11 +11,22 @@ html, body {
   background-color: var(--color-secondary);
 }
 
+
  header {
   width: 100%;
-  padding: 1rem;
-  height: 20%;
-  background-color: var(--color-primary);
+   padding: 1rem; 
+ 
+
+  background-image: linear-gradient(rgba(15, 62, 165, 0.5), rgba(0, 0, 0, 0.5)), 
+                      url("../Images/header-bg-image.jpg");
+    
+   background-size: cover; 
+    background-position: center; /* Centre l’image pour éviter le recadrage gênant */
+    background-repeat: no-repeat; /* Empêche la répétition de l’image */
+    width: 100%; /* Prend toute la largeur */
+    height: 300px; /* Hauteur spécifique pour le mobile (ajuste selon ton besoin) */
+  
+  /* background-color: var(--color-primary); */
   padding-bottom: 6px;
   position: fixed;
 
@@ -28,6 +39,15 @@ header nav {
   justify-content: space-between;
   align-items: center;
 }
+
+
+.mainTitleEvent {
+  margin: 2%;
+  padding-top: 2%;
+  font-size: 24px;
+  color: var(--color-button-booking);
+}
+
 
 /* 3. Styles pour le main */
 main {
@@ -64,7 +84,7 @@ button a:visited {
 
 
 .container1__homepage {
-  padding-top: 150px;
+  padding-top: 280px;
 display: flex;
 justify-content: center;
 align-items: center;
@@ -82,6 +102,7 @@ h1 {
   text-align: center;
   min-width: 100%;
   font-size: 16px;
+  color: var(--color-button-bookingd);
   padding-bottom: 10px;
 }
 
@@ -206,7 +227,7 @@ h1 {
   border-radius: 5px;
 }
 
-#submitFormConnection, #buttonDeconnection {
+#submitFormConnection {
   width: 100%;
   background-color:var(--color-button-connect);
   color:black;
@@ -218,10 +239,33 @@ h1 {
   margin-bottom: 5%;
 }
 
+#buttonDeconnection {
+  width: 100%;
+  background-color:var(--color-button-connect-hover);
+  color:black;
+  box-shadow: 0 10px 15px -5px rgba(0, 0, 0, 0.3); /* Ombre portée */
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  padding: 2%;
+  margin-bottom: 5%;
+
+}
 #submitFormConnection:hover, #buttonDeconnection:hover {
   background-color:var(--color-button-connect-hover);
 }
 
+.questionBooking {
+  color: var(--color-card-event);
+}
+
+.idCard {
+  text-align: center;
+  font-weight: bolder;
+  font-size: 16px;
+  padding: 2%;
+  color: var(--color-button-booking);
+}
 
 /* Tablette (768px et plus) */
  @media (min-width: 768px) {
@@ -231,14 +275,37 @@ h1 {
     justify-self: center;
   }
 
+
+
+
+
+  .container1__homepage {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+  }
+
+  .deconnection { 
+    width: 60%;
 }
+ 
+
+ }
 
 
 
 @media (min-width: 1050px) {
 
+  header {
+    background-color: var(--color-button-booking);
+    background-image: none;
+    height: 110px;
+  }
+
   .container1__homepage {
-    padding-top: 10%;
+    
+      padding-top: 130px;
+  
   
   }
   .container2__homepage {

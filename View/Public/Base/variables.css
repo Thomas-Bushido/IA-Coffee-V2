@@ -1,15 +1,18 @@
 :root {
     /* Couleurs */
-    --color-primary: #0a68ff;
-    --color-secondary: white;
+    --color-primary: #153260;
+    --color-secondary: rgb(247, 246, 252);
+    --color-tertiary:linear-gradient(135deg, #2094D7 0%, rgba(30, 31, 32, 0.3) 100%);
+    --color-blue-Logo:#0e9dc0;
     --color-text:black;
 
     /* Couleurs --- Boutons */
-    --color-button-booking:black;
+    --color-button-header:linear-gradient(135deg, #283e58 0%, rgba(30, 31, 32, 0.3) 100%);
+    --color-button-booking:#153260;
     --color-button-booking-hover:#CFA975;
 
-    --color-button-connect:#D2D4DD;
-    --color-button-connect-hover:#8E91B2;
+    --color-button-connect:#3cc5fc;
+    --color-button-connect-hover:#e0e1e9;
 
     --color-button-create-account:#2094D7;
     --color-button-create-account-hover:#202FD7;
@@ -24,10 +27,12 @@
 
     --color-button-clicked:#000000;
 
-    --color-card-event:#D9D9D9;
+    --color-card-event:white;
 
     /* box shadow */
     box-shadow: 0 10px 15px -5px rgba(0, 0, 0, 0.3); /* Ombre portée */
+    
+
   
     /* Typographie */
     --font-main: 'inter';

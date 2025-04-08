@@ -1,54 +1,32 @@
-.card__event {
+.card__bookingAdmin {
     border-radius: 12px;
     border-top-right-radius: 12px;
-    width: 340px;
+    width: 300px;
     background-color: var(--color-card-event);
-    margin-bottom: 5%;
-    height: 300px;
+    margin: 5%;
+    height: 400px;
     
 
 }
 
 
-
-.mainTitleEvent {
-    margin: 2%;
-    padding-top: 2%;
-    font-size: 24px;
-}
-
-.topPart {
+.topPartBooking {
     display: flex;
     flex-direction: column;
-    background-image: url("/View/Public/Images/Artificial.png");
+    background-image: url("/View/Public/Images/bookinglogo.png");
     background-position: center;
     background-repeat: no-repeat;
-    color: white;
+    color:black;
+    font-weight: bold;
     width: 100%;
     height: 50%;
     border-top-right-radius: 12px;
     border-top-left-radius: 12px;
 }
 
-.eventState {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center; /* Centre verticalement */
-    justify-content: center; /* Centre horizontalement */
-    text-align: center;
-    color: rgb(5, 109, 5);
-    font-size: 20px;
-    font-weight: bolder;
-    
-}
-.descriptionEvent {
-    font-size: bolder;
-    width: 100%;
-    height: 50%;
-}
 
-.bottomPart {
+
+.bottomPartBooking {
     display: flex;
     
     flex-direction: column;
@@ -70,11 +48,28 @@
     text-align: center;
 }
 
-.formDetails {
-    display: flex;
-    justify-content: center;
+.descriptionEventB {
+    font-size: bolder;
     width: 100%;
-    height: 30%;
+    height: 50%;
+}
+
+
+
+
+.confirmation {
+    display: none; 
+    flex-direction: column;
+    align-items: center;
+    padding: 5%;
+    width: 82%;
+    height: 17%;
+    top: 45%;
+    left:9%;
+    color: white;
+    border-radius: 5px;
+
+    background-color: black;
 }
 
 .answerContainer {
@@ -92,7 +87,7 @@
 }
 
 
-.buttonYes, .buttonNo {
+#buttonYes, .buttonNo {
     color: white;
     background-color: black;
     border: none;
@@ -100,9 +95,9 @@
     font-weight: bolder;
 }
 
-.buttonBooking,.buttonBooking2 {
+.buttonBooking2 {
     padding:7px;
-    max-width: 48%;
+    width: 100%;
     font-size: 16px;
     color: white;
     border-radius: 10px;
@@ -111,24 +106,28 @@
 
 @media (min-width: 768px) {
 
-    .card__event {
-   
-        margin: 2%;
-       
-     }
+    .confirmation {
+           
+        padding: 5%;
+        width: 60%;
+        height: 20%;
+        top: 45%;
+        left:20%;
+    }
   
 }
 
 
   @media (min-width: 1050px) {
 
-    /* .card__event {
-   
-       width: 50%;
-       margin: 2%;
-      
+    .confirmation {
+           
+        padding: 2%;
+        width: 30%;
+        height: 15%;
+        top: 30%;
+        left:35%;
     }
-   */
    
   
   

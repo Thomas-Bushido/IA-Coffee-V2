@@ -8,12 +8,15 @@ if (!isset($_SESSION['user']) || $_SESSION['user']['role'] !== 1) {
 ?> 
 
 <div class="container1__homepage">
-    <h1 class="welcomeTitle">Bienvenue, <?php echo $_SESSION['user']['email']
+    
+    <h1 class="mainTitleEvent">Bienvenue, <?php echo $_SESSION['user']['email']
     ?></h1>
+     <div class="container1__options"> 
         <button class="buttonSession"><a href="sessionAdminUserList">Gestion des utilisateurs</a></button>
         <button class="buttonSession"><a href="sessionAdminEventList">Gestion des événements</a></button>
         <button class="buttonSession"><a href="sessionAdminBookingList">Gestion des Réservations</button>
         <button class="buttonSession"><a href="sessionAdminInfos">Mes informations</a></button>
+        
         <button class="buttonDeleteAccount" data-id="<?= htmlspecialchars($_SESSION['user']['id']); ?>">Supprimer mon compte</button>
         <form class="deleteAccount" action="../../Controller/userCancellation.php" method="POST">
                             <h1 class="questionBooking">Souhaitez-vous vraiment supprimer votre compte ?</h1>
@@ -27,7 +30,8 @@ if (!isset($_SESSION['user']) || $_SESSION['user']['role'] !== 1) {
         <form class="deconnection" method="POST" action="logout">
         <button id="buttonDeconnection" type="submit" value="Déconnexion">Me déconnecter</button>
         </form>
-    </div>
+        </div>
+     </div> 
 
 
     <?php $content = ob_get_clean(); ?>
