@@ -1,4 +1,5 @@
 ☕ IA COFFEE
+
 IA COFFEE est une application web de réservation gratuite pour des événements autour de l’intelligence artificielle. Le site permet aux utilisateurs de consulter, réserver et gérer leur participation à des événements thématiques, dans un univers pensé pour les passionnés de tech et de café.
 Ce projet a été développé dans le cadre de la formation Développeur Web et Web Mobile, et sera présenté lors de ma soutenance de diplôme.
 
