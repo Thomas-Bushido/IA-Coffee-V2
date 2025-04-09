@@ -14,7 +14,9 @@ la manipulation des données (Modèles),
 
 l’affichage (Vues).
 
+
 🛠️ Technologies utilisées
+
 Domaine	Technologie
 Langage backend	PHP
 Langage frontend	HTML, CSS, JavaScript
@@ -22,7 +24,10 @@ Base de données	MySQL
 Architecture	MVC personnalisé
 Approche responsive	Mobile First
 Hébergement local	WAMP
+
+
 ✨ Fonctionnalités principales
+
 🔍 Navigation intuitive sur les événements disponibles
 
 📅 Réservation gratuite en ligne (avec vérification des doublons)
