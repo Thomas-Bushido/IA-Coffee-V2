@@ -18,11 +18,17 @@ l’affichage (Vues).
 🛠️ Technologies utilisées
 
 Domaine	Technologie
+
 Langage backend	PHP
+
 Langage frontend	HTML, CSS, JavaScript
+
 Base de données	MySQL
+
 Architecture	MVC personnalisé
+
 Approche responsive	Mobile First
+
 Hébergement local	WAMP
 
 
