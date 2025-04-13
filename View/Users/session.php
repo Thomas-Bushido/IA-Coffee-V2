@@ -1,3 +1,4 @@
+<?php  require_once(__DIR__ . '/../../config.php');?>
 <?php 
 //  require_once(__DIR__ . '/); 
 
@@ -11,12 +12,11 @@ ob_start();
 
 <div class="container1__homepage">
     <div class="menuUser">
-    <h1 class="mainTitleEvent">Bienvenue, <?php 
-    
-        echo $_SESSION['user']['email'] ?></h1>
+    <h1 class="mainTitleEvent">Bienvenue, <?= htmlspecialchars($_SESSION['user']['email'] ?? 'Invité') ?></h1>
         <button class="buttonSession"><a href="sessionUserInfos">Mes informations</a></button>
         <button class="buttonDeleteAccount" data-id="<?= htmlspecialchars($_SESSION['user']['id']); ?>">Supprimer mon compte</button>
         <form class="deleteAccount" action="DeleteUserAccount" method="POST">
+        <input type="hidden" name="csrf_token" value="<?= htmlspecialchars($_SESSION['csrf_token']) ?>">
                             <h1 class="questionBooking">Souhaitez-vous vraiment supprimer votre compte ?</h1>
                             <h2 class="questionBookingTitle"></h2>
                             <div class="answerContainer">
@@ -26,6 +26,7 @@ ob_start();
 
                         </form>
         <form class="deconnection" method="POST" action="logout">
+        <input type="hidden" name="csrf_token" value="<?= htmlspecialchars($_SESSION['csrf_token']) ?>">
         <button id="buttonDeconnection" type="submit" value="Déconnexion">Me déconnecter</button>
         </form>
        
@@ -51,11 +52,12 @@ ob_start();
                     </p>
                      <button class="buttonCancelBooking" data-title="<?= htmlspecialchars($booking['Title']); ?>" value="<?= htmlspecialchars($booking['idBooking']); ?>">Annuler</button>
                       <form class="cancellation" action="DeleteBookingController" method="POST">
+                      <input type="hidden" name="csrf_token" value="<?= htmlspecialchars($_SESSION['csrf_token']) ?>">
                             <h1 class="questionBooking">Souhaitez-vous vraiment annuler cette réservation:</h1>
                             <h2 class="questionBookingTitle"><?= htmlspecialchars($booking['Title']); ?></h2>
                             <div class="answerContainer">
                                 <button class="buttonYes" type="submit" name="idBooking" value="<?= htmlspecialchars($booking['idBooking']); ?>">Oui</button>
-                                <button class="buttonNo">Non</button>
+                                <button class="buttonNo" type="button">Non</button>
                             </div>
 
                         </form>  

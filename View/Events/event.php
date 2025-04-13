@@ -1,9 +1,7 @@
+<?php  require_once(__DIR__ . '/../../config.php');?>
 <?php $title = "Evenement"; ?>
 
 <?php ob_start();
-
-
-
 ?>
 
 <?php
@@ -57,6 +55,7 @@ if ($alreadyBooked) {
     // Seuls les utilisateurs normaux (non-admins) peuvent réserver
 ?>
     <form class="formDetails" method="POST" action="EventDetail">
+        <input type="hidden" name="csrf_token" value="<?= htmlspecialchars($_SESSION['csrf_token']) ?>">
         <input type="hidden" name="idEvent" value="<?= htmlspecialchars($event['idEvent']); ?>">
         <button class="buttonBooking2" type="submit" data-title="<?= htmlspecialchars($event['Title']); ?>">
             Réserver une place

@@ -14,6 +14,7 @@ class AdminCreateEventList extends Controller{
     public function index () {
         //     // 🔹 Création d'un événement
     if (isset($_POST['titre'], $_POST['date'], $_POST['heure'], $_POST['lieu'], $_POST['description'], $_POST['place'])) {
+        $this->verifyCsrfToken();
         $title = $_POST['titre'];
         $date = $_POST['date'];
         $hour = $_POST['heure'];

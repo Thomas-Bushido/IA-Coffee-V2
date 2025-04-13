@@ -24,16 +24,27 @@ abstract class Controller {
             }
         }
 
-        // Si le modèle n'est trouvé dans aucun répertoire
+       
         die("❌ Erreur : Le modèle '$model' est introuvable !");
     }
 
     public function render(string $fichier, array $data = []) {
-        // Extraire les données pour pouvoir les utiliser directement dans la vue
+       
         extract($data);
 
         require_once(ROOT . 'View/' . '/' . $fichier . '.php');
 
+    }
+
+    // ✅ Méthode CSRF
+    public function verifyCsrfToken(): void {
+        if (!isset($_POST['csrf_token']) || !isset($_SESSION['csrf_token'])) {
+            die("❌ Erreur : Token CSRF manquant.");
+        }
+
+        if ($_POST['csrf_token'] !== $_SESSION['csrf_token']) {
+            die("❌ Erreur : Token CSRF invalide.");
+        }
     }
 
 }

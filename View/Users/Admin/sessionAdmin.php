@@ -1,3 +1,4 @@
+<?php  require_once(__DIR__ . '/../../../config.php');?>
 <?php $title = "session admin"; ?>
  <?php ob_start(); 
 
@@ -19,6 +20,7 @@ if (!isset($_SESSION['user']) || $_SESSION['user']['role'] !== 1) {
         
         <button class="buttonDeleteAccount" data-id="<?= htmlspecialchars($_SESSION['user']['id']); ?>">Supprimer mon compte</button>
         <form class="deleteAccount" action="../../Controller/userCancellation.php" method="POST">
+        <input type="hidden" name="csrf_token" value="<?= htmlspecialchars($_SESSION['csrf_token']) ?>">
                             <h1 class="questionBooking">Souhaitez-vous vraiment supprimer votre compte ?</h1>
                             <h2 class="questionBookingTitle"></h2>
                             <div class="answerContainer">
@@ -28,6 +30,7 @@ if (!isset($_SESSION['user']) || $_SESSION['user']['role'] !== 1) {
 
                         </form>
         <form class="deconnection" method="POST" action="logout">
+        <input type="hidden" name="csrf_token" value="<?= htmlspecialchars($_SESSION['csrf_token']) ?>">
         <button id="buttonDeconnection" type="submit" value="Déconnexion">Me déconnecter</button>
         </form>
         </div>

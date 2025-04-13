@@ -1,9 +1,9 @@
 <?php
 include_once 'MainController.php';
 
-class CreateBookingController extends Controller {
+class AdminCreateBookingList extends Controller {
     private $createBookingModel;
-    
+
     public function __construct() {
         $this->loadModel('createBooking');
         $this->createBookingModel = $this->model;
@@ -16,18 +16,15 @@ class CreateBookingController extends Controller {
         }
 
         if ($_SERVER["REQUEST_METHOD"] === "POST") {
+
             $this->verifyCsrfToken();
             if (isset($_POST['idEvent'])) {
                 $idEventBooked = htmlspecialchars($_POST['idEvent']);
-                $userId = $_SESSION['user']['id'] ?? null;
+                $userId = htmlspecialchars($_POST['idUser']) ?? null;
 
-                if ($userId && $_SESSION['user']['role'] === 0) {
+                if($userId && $_SESSION['user']['role'] === 1){
                     $this->createBookingModel->create($idEventBooked, $userId);
-                    header("Location: session");
-                    exit();
-                } elseif($userId && $_SESSION['user']['role'] === 1){
-                    $this->createBookingModel->create($idEventBooked, $userId);
-                    header("Location: sessionAdmin");
+                    header("Location: sessionAdminBookingList");
                     exit();
 
                 } else {

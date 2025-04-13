@@ -13,7 +13,7 @@ class AdminUpdateEventList extends Controller{
     public function index() {
 // 🔹 Mise à jour d'un événement
     if (isset($_POST['idEventModify'], $_POST['titleModify'], $_POST['dateModify'], $_POST['hourModify'], $_POST['addressModify'], $_POST['descriptionModify'], $_POST['entrantsModify'])) {
-       
+        $this->verifyCsrfToken();
         
         $updateID = $_POST['idEventModify'];
         $updateTitle = $_POST['titleModify'];

@@ -19,6 +19,7 @@ class EventDetail extends Controller {
         }
     
         if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['idEvent'])) {
+            $this->verifyCsrfToken();
             $idEvent = (int)$_POST['idEvent'];
             $events = $this->eventDetailModel->get();
             

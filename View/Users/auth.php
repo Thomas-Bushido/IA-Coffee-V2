@@ -1,3 +1,4 @@
+<?php  require_once(__DIR__ . '/../../config.php');?>
 <?php $title = "Connexion"; ?>
 
 <?php ob_start(); ?>
@@ -6,6 +7,7 @@
 <div class="container1__homepage">
 <h1 class="mainTitleEvent">Déjà un compte? Identifiez-vous</h1>
     <form id="formConnection" method="POST"action="login">
+    <input type="hidden" name="csrf_token" value="<?= htmlspecialchars($_SESSION['csrf_token']) ?>">
     <!-- <label for="email">Votre e-mail:</label> -->
     <input type="email" id="email2"name="email2" placeholder="Entrez votre adresse mail" required>
     <br />
@@ -25,6 +27,7 @@
     <h1 class="mainTitleEvent">Ou</h1>
     <h2 class="mainTitleEvent" >Créez votre compte</h2>
 <form id="formInscription" method="POST" action="register">
+<input type="hidden" name="csrf_token" value="<?= htmlspecialchars($_SESSION['csrf_token']) ?>">
     <!-- <label for="nom">Votre nom:</label> -->
     <input type="text" id="nom" name="nom" placeholder="Entrez votre nom" required>
     <br />
@@ -61,9 +64,9 @@
 </div>
 
 
-   <script>
-   const checkUsers = <?=  json_encode($checkUsers)  ?>;
-//    console.log('he');
+<script>
+const checkUsers = <?= json_encode($checkUsers ?? [], JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT) ?>;
+// Encodage des caractères spéciaux (<, >, &, ', ") pour éviter les injections JS
 </script>
 
 

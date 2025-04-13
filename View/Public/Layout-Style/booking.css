@@ -4,7 +4,7 @@
     width: 300px;
     background-color: var(--color-card-event);
     margin: 5%;
-    height: 400px;
+    height: 450px;
     
 
 }
@@ -54,6 +54,13 @@
     height: 50%;
 }
 
+#addUser {
+    width: 10%;
+}
+
+#addEvent {
+    width: 10%;
+}
 
 
 

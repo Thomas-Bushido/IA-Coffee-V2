@@ -14,6 +14,7 @@ class AdminUpdateUserList extends Controller{
  
 public function index (){
        if ($_SERVER["REQUEST_METHOD"] === "POST") {
+        $this->verifyCsrfToken();
         if(isset($_POST['idRole']) && isset($_POST['idUser'])) {
             $userId = $_POST['idUser'];
             $firstname = $_POST['Nom'];

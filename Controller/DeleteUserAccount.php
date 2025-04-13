@@ -14,6 +14,7 @@ class DeleteUserAccount extends Controller{
  
 public function index (){
        if ($_SERVER["REQUEST_METHOD"] === "POST") {
+        $this->verifyCsrfToken();
         if(isset($_POST['idUser'])) {
             $userId = $_POST['idUser'];
          

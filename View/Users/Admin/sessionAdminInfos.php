@@ -1,3 +1,4 @@
+<?php  require_once(__DIR__ . '/../../config.php');?>
 <?php $title = "session administrateur: informations personnelles"; ?>
 
 <?php ob_start(); 
@@ -15,6 +16,7 @@
 <div class="container1__homepage">
     <h1 class="mainTitleEvent">Mes informations</h1>
 <form id="formInscription" action="UpdateInfosUser" method="POST">
+<input type="hidden" name="csrf_token" value="<?= htmlspecialchars($_SESSION['csrf_token']) ?>">
     <label for="nom">Votre nom:</label>
     <input type="text" id="nom" name="Nom" value="<?= htmlspecialchars($infos['LastName']) ?>" required>
     <br />
@@ -64,7 +66,7 @@
 
 
 <script>
-   const updateUsers = <?=  json_encode($updateUsers)  ?>;
+   const updateUsers = <?=  json_encode($updateUsers ?? [], JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT)  ?>;
    
 </script>
 

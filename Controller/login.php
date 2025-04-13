@@ -11,6 +11,7 @@ class Login extends Controller {
 
        public function index() {
             if ($_SERVER["REQUEST_METHOD"] == "POST") {
+                $this->verifyCsrfToken();
                 if (isset($_POST['email2'], $_POST['pass3'])) {
            $email2 = $_POST['email2'];
            $mdp = $_POST['pass3'];

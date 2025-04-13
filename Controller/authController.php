@@ -27,6 +27,7 @@ class AuthController extends Controller{
     public function index(){
         // Si la requête est une méthode POST
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            $this->verifyCsrfToken();
             if (isset($_POST['action'])) {
                 if ($_POST['action'] == "register") {
                     $this->connection->index();

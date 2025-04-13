@@ -1,3 +1,5 @@
+<?php  require_once(__DIR__ . '/../../config.php');?>
+
 <header>
 
     <?php
@@ -99,7 +101,7 @@
     <div class="container3">
         <div class="searchBar">
 
-            <input id="searchInput" type="text" placeholder="Recherchez un evenement, une date">
+            <input id="searchInput" type="text" placeholder="  Recherchez un evenement...">
             <!-- <button class="loopButton">
      
       </button> -->
@@ -110,6 +112,7 @@
     <div class="list">
 <?php foreach ($eventSearch as $event): ?>
     <form class="searchBarList searchItem" method="POST" action="EventDetail">
+    <input type="hidden" name="csrf_token" value="<?= htmlspecialchars($_SESSION['csrf_token']) ?>">
     <div class="logoSearchBarList"></div>
     <?php 
     if (!isset($_SESSION['user'])) {

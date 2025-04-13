@@ -14,6 +14,7 @@ class AdminDeleteEventList extends Controller{
     public function index() {
  // 🔹 Suppression d'un événement
     if (isset($_POST['idEvent'])) {
+        $this->verifyCsrfToken();
         $EventId = $_POST['idEvent'];
         
         $this->deleteEventModel->delete($EventId);

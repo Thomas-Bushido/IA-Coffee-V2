@@ -1,9 +1,11 @@
 <?php
 // On génère une constante qui contiendra le chemin vers index.php
-define('ROOT', $_SERVER['DOCUMENT_ROOT'] . '/'); // Si tu as un sous-répertoire, ajuste ce chemin en conséquence.
+define('ROOT', $_SERVER['DOCUMENT_ROOT'] . '/'); 
 
 require_once(ROOT.'Model/src/dbConnect.php');
 require_once(ROOT.'Controller/MainController.php');
+
+
 
 // Vérifier si 'p' existe dans l'URL
 if (isset($_GET['p']) && !empty($_GET['p'])) {

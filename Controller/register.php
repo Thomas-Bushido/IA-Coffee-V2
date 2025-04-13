@@ -11,6 +11,7 @@ class Register extends Controller {
 
     public function index() {
         if ($_SERVER["REQUEST_METHOD"] === "POST") {
+            $this->verifyCsrfToken();
             // Récupération des données et validation
             if (isset($_POST['nom'], $_POST['prenom'], $_POST['email'], $_POST['telephone'], $_POST['pass1'], $_POST['pass2'])) {
                 $lastname = trim($_POST['nom']);

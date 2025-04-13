@@ -1,3 +1,4 @@
+<?php  require_once(__DIR__ . '/../../config.php');?>
 <?php $title = "Evenement"; ?>
 
 <?php ob_start();
@@ -48,6 +49,7 @@
         <button class="buttonBooking2" data-title="<?= htmlspecialchars($eventInfos[0]['Title']); ?>" value="<?= htmlspecialchars($eventInfos[0]['idEvent']); ?>">Réserver une place</button>
 
         <form class="confirmation" method="POST" action="CreateBookingController">
+        <input type="hidden" name="csrf_token" value="<?= htmlspecialchars($_SESSION['csrf_token']) ?>">
             <h1 class="questionBooking"></h1>
             <h2 class="questionBookingTitle"></h2>
             <div class="answerContainer">

@@ -13,11 +13,13 @@ class sessionAdminBookingList extends Controller {
 
         $getBookinglist = new AdminGetBookingList();
         $bookings = $getBookinglist->getBookingList(); // Récupération des réservations
+        $events = $getBookinglist->getEventList(); // Récupération des réservations
 
         $role = $_SESSION['user']['role'];
 
         if ($role == 1) {
-            $this->render('Booking/Booking', ['bookings' => $bookings]);
+            $this->render('Booking/Booking', [ 'events' => $events,
+            'bookings' => $bookings,]);
         } 
     }
 }

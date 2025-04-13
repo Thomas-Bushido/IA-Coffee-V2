@@ -22,8 +22,7 @@ if (!isset($setChronos)) {
 
 <img class="Picture__1" src="/View/Public/Images/photoaccueil2.png" alt="image">
  <p>A Euratechnologies Lille</p>
- <p class="moreInfos"> <link rel="stylesheet" href="">EN SAVOIR PLUS</p>
-</div>
+ </div>
 <div class="container3__homepage">
 <h1 class="chronoTitle">Prochain événement dans:</h1>
 <div class="chrono">
@@ -38,7 +37,7 @@ if (!isset($setChronos)) {
 </div>
       <!-- Passer la date/heure du prochain événement à JavaScript -->
       <script>
-   const chronos = <?=  json_encode($setChronos)  ?>;
+   const chronos = <?=  json_encode($setChronos ?? [], JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT)  ?>;
    // console.log(chronos);
 </script>
 <script src="/View/Public/chrono.js"></script>

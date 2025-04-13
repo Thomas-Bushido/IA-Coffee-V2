@@ -12,6 +12,8 @@
   height: 35%;
   padding-left: 1%;
   padding-right: 1%;
+  padding-top: 1%;
+  padding-bottom: 1%;
 }
 .container2 {
   color: white;
@@ -106,6 +108,8 @@
   /* padding-left: 16px; */
   /* margin-left: 1px;
   margin-right: 1px; */
+  margin-top: 2%;
+  border-radius: 20px;
   width: 100%;
   max-height: 400px;
 }
@@ -119,7 +123,7 @@ input {
 } 
 
 .searchBar input {
-  border-radius: 10px;
+  border-radius: 25px;
   border-right:none ;
   
   flex-grow: 1; /* Prend tout l'espace disponible */
@@ -397,10 +401,10 @@ color:white;
 
 
   .container4{
-   
-    padding-left: 16px; 
+    
+    padding-left: 10px; 
      margin-left: 1px;
-    margin-right: 1px; 
+    margin-right: 2px; 
     width: 100%;
     max-height: 400px;
   }
@@ -410,6 +414,10 @@ color:white;
      width: 60%;
   
     
+  }
+  
+  .list {
+    border-radius: 20px;
   }
 
 
@@ -489,6 +497,7 @@ color:white;
 .container4{
    
   padding-left: 12px; 
+  border-radius: 20px;
 
 }
 

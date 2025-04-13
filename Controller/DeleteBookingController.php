@@ -13,6 +13,13 @@ class DeleteBookingController extends Controller{
 
     public function index() {
  // 🔹 Suppression d'un événement
+    if($_SESSION['user']['role'] === 1 && isset($_POST['idBooking'])) {
+        $this->verifyCsrfToken();
+        $idBooking = $_POST['idBooking'];
+        $this->deleteBookingModel->delete($idBooking);
+        header("Location: sessionAdminBookingList"); // Redirection si l'utilisateur n'est pas connecté
+        exit();
+    }
     if (isset($_POST['idBooking'])) {
         $idBooking = $_POST['idBooking'];
         $this->deleteBookingModel->delete($idBooking);

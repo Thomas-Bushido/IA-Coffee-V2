@@ -18,6 +18,7 @@ class UpdateInfosUser extends Controller {
       }
       public function index() {
             if ($_SERVER["REQUEST_METHOD"] === "POST") {
+                $this->verifyCsrfToken();
                 // Vérifier si l'utilisateur est connecté
                 if (!isset($_SESSION['user']['id'])) {
                     echo "Accès interdit.";

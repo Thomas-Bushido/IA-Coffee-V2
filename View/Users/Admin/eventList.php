@@ -1,4 +1,4 @@
-
+<?php  require_once(__DIR__ . '/../../../config.php');?>
 
 <?php $title = "Gestion des événements"; ?>
 <?php ob_start();
@@ -9,6 +9,7 @@
     <div class="addButtonDiv"><button id="addButton"><img id="addLogo" src="/View/Public/Images/icons8-plus-64.png" alt="image"></button></div>
     <div class="addEventDiv">
         <form class="addEventForm" method="POST" action="AdminCreateEventList">
+        <input type="hidden" name="csrf_token" value="<?= htmlspecialchars($_SESSION['csrf_token']) ?>">
             <h1 class="titleAddEventDiv">Ajoutez un nouvel événement</h1>
             <label for="titre">Titre:</label>
             <input type="text" id="addTitre" name="titre" require>
@@ -57,6 +58,7 @@ if (!empty($events)) {
             </div>
             <div class="infoEvent">
             <form class="formModifyEvent" action="AdminUpdateEventList" method="POST">
+            <input type="hidden" name="csrf_token" value="<?= htmlspecialchars($_SESSION['csrf_token']) ?>">   
             <input type="hidden" name='idEventModify' data-id="<?= htmlspecialchars($event['idEvent']); ?>" value="<?= htmlspecialchars($event['idEvent']); ?>">
                 <br />
                 <label for="titleModify">Titre:</label>
@@ -100,6 +102,7 @@ if (!empty($events)) {
                 value="<?= htmlspecialchars($event['idEvent']); ?>">Supprimer</button>
 
             <form class="cancellation" action="AdminDeleteEventList" method="POST">
+            <input type="hidden" name="csrf_token" value="<?= htmlspecialchars($_SESSION['csrf_token']) ?>">
                 <h1 class="questionBooking">Souhaitez-vous vraiment supprimer cet événement:</h1>
                 <h2 class="questionBookingTitle"></h2>
                 <div class="answerContainer">

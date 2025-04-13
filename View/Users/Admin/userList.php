@@ -1,3 +1,4 @@
+<?php  require_once(__DIR__ . '/../../../config.php');?>
 <?php $title = "session admin: gestion des utilisateurs "; ?>
 <?php ob_start(); ?>
 
@@ -21,6 +22,7 @@
                 </div>
             <div class="avatarInfos">
             <form class="updatUserForm"method="POST" action="AdminUpdateUserList">
+            <input type="hidden" name="csrf_token" value="<?= htmlspecialchars($_SESSION['csrf_token']) ?>">
             <br />
             <label for="Nom">Nom:</label>
     <input type="text" id="Nom" name="Nom" value="<?= htmlspecialchars($user['LastName']) ?>" >
@@ -63,6 +65,7 @@
 
 <div class="deleteDiv"><button class="deleteButton" value="<?= htmlspecialchars($user['Identifier']) ?>">Supprimer</button>
                     <form class="deleteAccount" method="POST" action="AdminDeleteUserList">
+                    <input type="hidden" name="csrf_token" value="<?= htmlspecialchars($_SESSION['csrf_token']) ?>">
                     <h1 class="questionBooking">Souhaitez-vous vraiment supprimer ce compte ? ID:</h1>
                             <h2 class="questionBookingTitle">ID:<?= htmlspecialchars($user['Identifier']) ?></h2>
                             <input type="hidden" name="deleteUser" value="1">
